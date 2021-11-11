@@ -80,7 +80,8 @@ const onScroll = () => {
   // const scaleStartPosition = parallaxScrollHeight - 2500;
   const bottomPositionForScale = positionY - scaleStartPosition;
   const scale = 1 + bottomPositionForScale / 3000;
-  const bottomPosition = positionY - (parallaxScrollHeight - window.innerHeight);
+  const headerHeight = (document.querySelector('.header_menu_wrap') ? document.querySelector('.header_menu_wrap').offsetHeight + 10 : 0);
+  const bottomPosition = positionY - (parallaxScrollHeight - window.innerHeight) - headerHeight;
   if (scaleStartPosition && scaleStartPosition <= positionY) {
     const minMaxScale = scale < 1 ? 1 : scale > 1.3 ? 1.3 : scale;
     if (parallaxScrollHeight - window.innerHeight <= positionY) {
