@@ -139,7 +139,7 @@ window.onload = function () {
 
 const starTwinkle = (num) => {
   const createStar = document.createElement('div');
-  createStar.classList = `star star${num}`;
+  createStar.classList = `star star${num % 10} starRandom${num}`;
 
   const background = document.querySelector('.background');
   background.append(createStar);
@@ -148,13 +148,13 @@ const starTwinkle = (num) => {
   const leftRandom = Math.random() * 100;
   const sizeRandom = Math.random() * (25 - 5) + 5;
 
-  const star = document.querySelector(`.star${num}`);
+  const star = document.querySelector(`.starRandom${num}`);
 
   star.style.top = `${topRandom}vh`;
   star.style.left = `${leftRandom}vw`;
   star.style.width = `${sizeRandom}px`;
   star.style.height = `${sizeRandom}px`;
-  setTimeout(() => star.remove(), 1000);
+  setTimeout(() => star.remove(), (num % 10) * 200 * 2);
 };
 
 const randomTwinkle = (num) => {
@@ -165,6 +165,6 @@ const randomTwinkle = (num) => {
 };
 
 setInterval(() => {
-  const starNumber = Math.floor(Math.random() * 100);
+  const starNumber = Math.floor(Math.random() * 200);
   randomTwinkle(starNumber);
 }, 50);
