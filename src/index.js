@@ -5,6 +5,8 @@ const rate = (1 / (elLength + 1)).toFixed(2);
 let index = null;
 let scaleStartPosition = 8000;
 
+const agent = navigator.userAgent.toLowerCase();
+
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
 }
@@ -39,6 +41,13 @@ const onScroll = () => {
   const layer3 = document.querySelector('.layer3');
   const layer4 = document.querySelector('.layer4');
   const layer5 = document.querySelector('.layer5');
+
+  if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) {
+    if(positionY > 1440){fadeContainer.style.top = '27%';}
+    else {fadeContainer.style.top = '42%';}
+
+    if(positionY < 15000){fadeContainer.style.transform  = `translateY(0)`;}
+  }
 
   const fadeTiming = 400;
   const fadeLong = 2.7;
