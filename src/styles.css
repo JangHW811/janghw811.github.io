@@ -1,28 +1,28 @@
 @font-face {
   font-family: MaruBuriot;
   font-weight: normal;
-  src: url(../assets/fonts/MaruBuri-Regular.otf);
+  src: url(	https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/MaruBuri-Regular.otf);
 }
 @font-face {
   font-family: MaruBuriot;
   font-weight: 200;
-  src: url(../assets/fonts/MaruBuri-ExtraLight.otf);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/MaruBuri-ExtraLight.otf);
 }
 @font-face {
   font-family: MaruBuriot;
   font-weight: 300;
-  src: url(../assets/fonts/MaruBuri-Light.otf);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/MaruBuri-Light.otf);
 }
 
 @font-face {
   font-family: 'NanumBarunGothicOTF';
   font-weight: normal;
-  src: url(../assets/fonts/NanumBarunGothic.otf);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumBarunGothic.otf);
 }
 @font-face {
   font-family: 'NanumSquareOTFB';
   font-weight: normal;
-  src: url(../assets/fonts/NanumPen.otf);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumPen.otf);
 }
 
 * {
@@ -798,7 +798,7 @@ footer p {
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .fadeContainer {
-    top:calc(15% + 50px);
+    top:calc(50% + 207px);
   }
 
   .introducePeople {
