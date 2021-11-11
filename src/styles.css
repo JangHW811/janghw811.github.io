@@ -338,7 +338,7 @@ html {
   position: absolute;
   bottom: 0;
 }
-/* 
+/*
 .layerBuildingContainer .buildingInnerContents .building1Layer {
   transform: translateY(10vh);
 }
@@ -414,19 +414,25 @@ html {
   width: 100%;
   grid-row-start: 1;
   grid-column-start: 1;
+  -ms-grid-row : 1;
+  -ms-grid-column : 1;
 }
 .introducePeople .peopleContainer .humanContainer {
   display: grid;
+  display: -ms-grid;
   align-items: flex-end;
 }
 .introducePeople .cardContainer {
   width: 50vw;
   display: grid;
+  display: -ms-grid;
 }
 .introducePeople .cardContainer img {
   width: 100%;
   grid-row-start: 1;
   grid-column-start: 1;
+  -ms-grid-row : 1;
+  -ms-grid-column : 1;
 }
 
 .cardContainer > img {
@@ -543,6 +549,7 @@ html {
   width: 242px;
   height: 318px;
   display: grid;
+  display: -ms-grid;
   overflow: hidden;
 }
 
@@ -766,5 +773,48 @@ footer p {
   }
   .introduceFont {
     font-size: 15px;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .fadeContainer {
+    top:calc(15% + 50px);
+  }
+
+  .introducePeople {
+    height:90vh;
+  }
+
+  .youtubeContainer .storyYoutube{
+    -ms-transform: translateX(-107%) translateY(-50%);
+  }
+
+  .youtubeBottomImage {
+    left:0px;
+    right:0px;
+    margin : 0 auto;
+  }
+
+  .introducePeople .peopleContainer {
+    min-height: 40vh;
+  }
+
+  .introducePeople .cardContainer {
+    min-height: 45vh;
+  }
+
+  .storeContainer .goodsContainer .goodsItem.comingsoon .goodsFrame::after {
+    border-radius: 112px 112px 0px 0px;
+  }
+
+  .storeContainer .goodsContainer {
+    width: 50%;
+    text-align: center;
+    min-width: 940px;
+  }
+
+  .storeContainer .goodsContainer .goodsItem {
+    display:inline-flex;
+    margin:30px;
   }
 }

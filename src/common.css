@@ -1,0 +1,107 @@
+#quickMenu, .cont_top_wrap, .board_view_top, .board_view_section+.btn_wrap{
+display:none;
+}
+
+.board_view_section {
+border-top:none;
+}
+
+.sub_contents {
+width : 100%;
+}
+
+.news_cont .board_view_section { margin-top:0px;}
+.board_view_content {padding: 0px;}
+
+.container {
+padding-bottom: 0px;
+padding-top: 78px;
+}
+
+.txt-box {
+background: none;
+border: none;
+padding: 25px !important;
+}
+
+.small-txt{
+font-family:"바른고딕",sans-serif;
+}
+
+.top-txt {
+margin-top:70px;
+}
+
+.fb__floatingNav {
+position: fixed;
+z-index: 4;
+right: 80px;
+bottom: 100px;
+width: 68px;
+min-height: 68px;
+}
+
+.fb__floatingNav__event {
+min-height: 151px;
+}
+
+.fb__floatingNav__top {
+display: block;
+position: absolute;
+bottom: 0;
+left: 0;
+width: 68px;
+height: 68px;
+background: url("https://event.navienhouse.com/sweetdreamstore/assets/img/mo_arrow_top.png") no-repeat 50% 50%/60% auto;
+background-color: #2f2360 !important;
+border-radius: 50%;
+box-sizing: border-box;
+}
+
+.fb__floatingNav__sns {
+position: relative;
+width: 68px;
+height: 68px;
+margin-bottom: 15px;
+}
+
+.fb__floatingNav__sns #ProdUrl {
+position: absolute;
+bottom: 0;
+right: 0;
+opacity: 0;
+width: 5px;
+height: 5px;
+}
+
+.fb__floatingNav__sns:hover .banner__sns__open {
+display: none;
+}
+
+.fb__floatingNav__sns:hover .banner__sns__layer {
+display: block;
+}
+
+.fb__floatingNav__sns .banner__sns__open {
+width: 68px;
+height: 68px;
+background: #2f2360 url("https://event.navienhouse.com/sweetdreamstore/assets/img/ico_event-nav.png") no-repeat 47% 50%/41%;
+border-radius: 50%;
+border:0;
+font-size: 0;
+}
+
+.fb__floatingNav__sns .banner__sns__layer {
+display: none;
+position: absolute;
+bottom: 0;
+width: 68px;
+padding: 10px 0;
+background: #2f2360;
+border-radius: 60px;
+text-align:center;
+}
+
+.fb__floatingNav__sns .banner__sns__layer button:first-child {
+margin-top: 0;
+}

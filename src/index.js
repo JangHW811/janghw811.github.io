@@ -5,6 +5,10 @@ const rate = (1 / (elLength + 1)).toFixed(2);
 let index = null;
 let scaleStartPosition = 0;
 
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
 const onScroll = () => {
   const yOffset = (window.pageYOffset / contentHeight).toFixed(2);
   const newIndex = parseInt(yOffset / rate);
