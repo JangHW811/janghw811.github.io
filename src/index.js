@@ -9,6 +9,10 @@ if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
+if(!Element.prototype.append){
+	Element.prototype.append = Element.prototype.appendChild;
+}
+
 const onScroll = () => {
   const yOffset = (window.pageYOffset / contentHeight).toFixed(2);
   const newIndex = parseInt(yOffset / rate);
@@ -139,7 +143,9 @@ window.onload = function () {
 
 const starTwinkle = (num) => {
   const createStar = document.createElement('div');
-  createStar.classList = `star star${num % 10} starRandom${num}`;
+  createStar.classList.add(`star`);
+  createStar.classList.add(`star${num % 10}`);
+  createStar.classList.add(`starRandom${num}`);
 
   const background = document.querySelector('.background');
   background.append(createStar);
