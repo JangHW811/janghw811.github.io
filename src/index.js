@@ -13,6 +13,14 @@ if(!Element.prototype.append){
 	Element.prototype.append = Element.prototype.appendChild;
 }
 
+if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+        if (this.parentNode) {
+            this.parentNode.removeChild(this);
+        }
+    };
+}
+
 const onScroll = () => {
   const yOffset = (window.pageYOffset / contentHeight).toFixed(2);
   const newIndex = parseInt(yOffset / rate);
