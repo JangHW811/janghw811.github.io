@@ -3,7 +3,7 @@ const parallaxScrollHeight = 16000;
 const contentHeight = parallaxScrollHeight + window.innerHeight;
 const rate = (1 / (elLength + 1)).toFixed(2);
 let index = null;
-let scaleStartPosition = 0;
+let scaleStartPosition = 8000;
 
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
@@ -64,11 +64,11 @@ const onScroll = () => {
       layer.style.transform = `translateY(0)`;
     }
 
-    if (scaleStartPosition === 0 && layerPosition === 1600 && translatNumber * (window.innerWidth / window.innerHeight) <= 500) {
-      scaleStartPosition = positionY;
-    } else {
-      scaleStartPosition = 0;
-    }
+    // if (scaleStartPosition === 0 && layerPosition === 1600 && translatNumber * (window.innerWidth / window.innerHeight) <= 500) {
+    //   scaleStartPosition = positionY;
+    // } else {
+    //   // scaleStartPosition = 0;
+    // }
   };
 
   positionHandle(building1Layer, 700);
