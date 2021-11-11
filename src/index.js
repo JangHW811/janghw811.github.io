@@ -20,6 +20,7 @@ const onScroll = () => {
   const background = document.querySelector('.background');
   background.style.top = `-${positionY / 415}%`;
 
+  const fadeContainer = document.querySelector('.fadeContainer');
   const layer0 = document.querySelector('.layer0');
   const layer1 = document.querySelector('.layer1');
   const layer2 = document.querySelector('.layer2');
@@ -72,13 +73,13 @@ const onScroll = () => {
     const minMaxScale = scale < 1 ? 1 : scale > 1.3 ? 1.3 : scale;
     if (parallaxScrollHeight - window.innerHeight <= positionY) {
       layerBuildingContainer.style.transform = `translateY(-${bottomPosition}px) scale(${minMaxScale})`;
-      layer5.style.transform = `translateY(-${bottomPosition}px)`;
+      fadeContainer.style.transform = `translateY(-${bottomPosition}px)`;
     } else {
       layerBuildingContainer.style.transform = `scale(${minMaxScale})`;
     }
   } else {
     layerBuildingContainer.style.transform = null;
-    layer5.style.transform = null;
+    fadeContainer.style.transform = null;
   }
 };
 
@@ -149,7 +150,6 @@ const starTwinkle = (num) => {
 
   const star = document.querySelector(`.star${num}`);
 
-  console.log('star', star);
   star.style.top = `${topRandom}vh`;
   star.style.left = `${leftRandom}vw`;
   star.style.width = `${sizeRandom}px`;
