@@ -806,8 +806,12 @@ footer p {
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .moonBackground {
+    width : auto;
+  }
+
   .fadeContainer {
-    top: calc(50% + 207px);
+    top: 42%;
   }
 
   .introducePeople {
