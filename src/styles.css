@@ -3,6 +3,16 @@
   font-weight: normal;
   src: url(../assets/fonts/MaruBuri-Regular.otf);
 }
+@font-face {
+  font-family: MaruBuriot;
+  font-weight: 200;
+  src: url(../assets/fonts/MaruBuri-ExtraLight.otf);
+}
+@font-face {
+  font-family: MaruBuriot;
+  font-weight: 300;
+  src: url(../assets/fonts/MaruBuri-Light.otf);
+}
 
 @font-face {
   font-family: 'NanumBarunGothicOTF';
@@ -164,7 +174,7 @@ html {
 .fingerFrame {
   border: 40px solid;
   border-image-source: url('../assets/images/fingerFrame2.png');
-  width: 60vw;
+  width: 34.3vw;
   margin: 100px 0;
   border-image-slice: 40;
   display: flex;
@@ -230,6 +240,9 @@ html {
   overflow: hidden;
   transition: all 0.5s ease-in-out;
 }
+.storyListContainer .fontContainer {
+  text-align: left;
+}
 .open .storyListContainer {
   max-height: 800px;
   overflow: auto;
@@ -247,6 +260,7 @@ html {
 }
 .storyItemContainer > .flex > img {
   margin-right: 25px;
+  border: 1px solid #e4ba9b;
 }
 .storyItemContainer .arrowRight:hover {
   animation: buttonEffect 0.1s linear forwards;
@@ -284,7 +298,7 @@ html {
 
 .fadeContainer {
   z-index: 4;
-  top: calc(15% + 154px);
+  top: 50%;
   position: fixed;
   width: 100%;
 }
@@ -399,16 +413,21 @@ html {
 }
 
 .introducePeople {
-  background-image: url('../assets/images/smallStar.png');
-  background-repeat: no-repeat;
+  /* background-image: url('../assets/images/smallStar.png');
+  background-repeat: no-repeat; */
   background-size: contain;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+
+.introducePeople .introduceStarBg {
+  position: absolute;
+  width: 55vw;
+}
 .introducePeople .peopleContainer {
   display: flex;
-  width: 40vw;
+  width: 30vw;
 }
 .introducePeople .peopleContainer img {
   width: 100%;
@@ -423,7 +442,7 @@ html {
   align-items: flex-end;
 }
 .introducePeople .cardContainer {
-  width: 50vw;
+  width: 38.5vw;
   display: grid;
   display: -ms-grid;
 }
@@ -444,7 +463,7 @@ html {
 }
 
 .introducePeople .humanContainer0 {
-  flex: 22;
+  flex: 21;
 }
 .introducePeople .humanContainer1 {
   flex: 14;
@@ -456,7 +475,7 @@ html {
 }
 .introducePeople .humanContainer3 {
   margin-left: -1.6vw;
-  flex: 15.5;
+  flex: 17;
 }
 
 .introduceFont {
@@ -469,6 +488,7 @@ html {
   letter-spacing: -0.85px;
   text-align: center;
   color: #e4ba9b;
+  margin-bottom: 92px;
 }
 
 .peopleContainer {
@@ -622,12 +642,9 @@ html {
   background: url('../assets/images/flag2.png') no-repeat;
   background-size: contain;
   width: 228px;
-  height: 44px;
+  height: 43px;
   margin-top: 22px;
   justify-self: flex-end;
-}
-.storeContainer .goodsContainer .goodsItem.comingsoon .flag2 {
-  display: none;
 }
 
 footer {
@@ -746,25 +763,28 @@ footer p {
     width: 100%;
   }
 
-  .fadeContainer > .layer0 > img {
+  /* .fadeContainer > .layer0 > img {
     width: 191px;
   }
   .fadeContainer > .layer1 > img {
-    width: 196px;
+    width: 245px;
   }
   .fadeContainer > .layer2 > img {
-    width: 248px;
+    width: 245px;
   }
   .fadeContainer > .layer3 > img {
     width: 245px;
   }
   .fadeContainer > .layer4 > img {
-    width: 173px;
+    width: 245px;
   }
   .fadeContainer > .layer5 > img {
-    width: 172px;
-    margin-bottom: 0;
+    width: 245px;
+  } */
+  .fadeContainer > div > img {
+    width: 245px;
   }
+
   .fingerFrame {
     width: 94vw;
   }

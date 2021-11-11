@@ -86,9 +86,9 @@ const onResize = () => {
   const youtubeContainer = document.querySelector('.youtubeContainer > img.youtubeFrame');
   const youtubeIframe = document.querySelector('.youtubeContainer > iframe');
   console.log('window.innerWidth', window.innerWidth);
-  youtubeContainer.style.width = `${window.innerWidth * 0.56}px`;
-  youtubeIframe.width = `${window.innerWidth * 0.49}px`;
-  youtubeIframe.height = `${window.innerWidth * 0.49 * (42 / 73)}px`;
+  youtubeContainer.style.width = `${window.innerWidth * 0.36}px`;
+  youtubeIframe.width = `${window.innerWidth * 0.31}px`;
+  youtubeIframe.height = `${window.innerWidth * 0.31 * (41 / 73)}px`;
   onScroll();
 };
 onResize();
@@ -129,3 +129,9 @@ window.addEventListener('resize', onResize);
     }),
   );
 })();
+
+window.onload = function () {
+  setTimeout(function () {
+    scrollTo(0, 0);
+  }, 100);
+};
