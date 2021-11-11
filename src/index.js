@@ -9,16 +9,16 @@ if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
-if(!Element.prototype.append){
-	Element.prototype.append = Element.prototype.appendChild;
+if (!Element.prototype.append) {
+  Element.prototype.append = Element.prototype.appendChild;
 }
 
 if (!('remove' in Element.prototype)) {
-    Element.prototype.remove = function() {
-        if (this.parentNode) {
-            this.parentNode.removeChild(this);
-        }
-    };
+  Element.prototype.remove = function () {
+    if (this.parentNode) {
+      this.parentNode.removeChild(this);
+    }
+  };
 }
 
 const onScroll = () => {
@@ -66,6 +66,8 @@ const onScroll = () => {
 
     if (scaleStartPosition === 0 && layerPosition === 1600 && translatNumber * (window.innerWidth / window.innerHeight) <= 500) {
       scaleStartPosition = positionY;
+    } else {
+      scaleStartPosition = 0;
     }
   };
 
@@ -80,7 +82,9 @@ const onScroll = () => {
   // const scaleStartPosition = parallaxScrollHeight - 2500;
   const bottomPositionForScale = positionY - scaleStartPosition;
   const scale = 1 + bottomPositionForScale / 3000;
-  const headerHeight = (document.querySelector('.header_menu_wrap') ? document.querySelector('.header_menu_wrap').offsetHeight + 10 : 0);
+  const headerHeight = document.querySelector('.header_menu_wrap')
+    ? document.querySelector('.header_menu_wrap').offsetHeight + 10
+    : 0;
   const bottomPosition = positionY - (parallaxScrollHeight - window.innerHeight) - headerHeight;
   if (scaleStartPosition && scaleStartPosition <= positionY) {
     const minMaxScale = scale < 1 ? 1 : scale > 1.3 ? 1.3 : scale;
@@ -144,11 +148,11 @@ window.addEventListener('resize', onResize);
   );
 })();
 
-window.onload = function () {
-  setTimeout(function () {
-    scrollTo(0, 0);
-  }, 100);
-};
+// window.onload = function () {
+//   setTimeout(function () {
+//     scrollTo(0, 0);
+//   }, 100);
+// };
 
 const starTwinkle = (num) => {
   const createStar = document.createElement('div');
