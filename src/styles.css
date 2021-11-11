@@ -433,8 +433,8 @@ html {
   width: 100%;
   grid-row-start: 1;
   grid-column-start: 1;
-  -ms-grid-row : 1;
-  -ms-grid-column : 1;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
 }
 .introducePeople .peopleContainer .humanContainer {
   display: grid;
@@ -450,8 +450,8 @@ html {
   width: 100%;
   grid-row-start: 1;
   grid-column-start: 1;
-  -ms-grid-row : 1;
-  -ms-grid-column : 1;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
 }
 
 .cardContainer > img {
@@ -798,21 +798,21 @@ footer p {
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .fadeContainer {
-    top:calc(15% + 50px);
+    top: calc(15% + 50px);
   }
 
   .introducePeople {
-    height:90vh;
+    height: 90vh;
   }
 
-  .youtubeContainer .storyYoutube{
+  .youtubeContainer .storyYoutube {
     -ms-transform: translateX(-107%) translateY(-50%);
   }
 
   .youtubeBottomImage {
-    left:0px;
-    right:0px;
-    margin : 0 auto;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
   }
 
   .introducePeople .peopleContainer {
@@ -834,7 +834,66 @@ footer p {
   }
 
   .storeContainer .goodsContainer .goodsItem {
-    display:inline-flex;
-    margin:30px;
+    display: inline-flex;
+    margin: 30px;
+  }
+}
+
+.star {
+  position: absolute;
+  animation: starTwinkle 1s ease-in-out forwards;
+  background: url('../assets/images/star_wh.png');
+  background-size: cover;
+}
+
+/* .star1 {
+  animation: starTwinkle 0.2s ease-in-out infinite;
+}
+.star2 {
+  animation: starTwinkle 0.3s ease-in-out infinite;
+}
+.star3 {
+  animation: starTwinkle 0.4s ease-in-out infinite;
+}
+.star4 {
+  animation: starTwinkle 0.5s ease-in-out infinite;
+}
+.star5 {
+  animation: starTwinkle 0.6s ease-in-out infinite;
+}
+.star6 {
+  animation: starTwinkle 0.7s ease-in-out infinite;
+}
+.star7 {
+  animation: starTwinkle 0.8s ease-in-out infinite;
+}
+.star8 {
+  animation: starTwinkle 0.9s ease-in-out infinite;
+}
+.star9 {
+  animation: starTwinkle 1s ease-in-out infinite;
+}
+.star10 {
+  animation: starTwinkle 1.2s ease-in-out infinite;
+}
+.star11 {
+  animation: starTwinkle 1.3s ease-in-out infinite;
+}
+.star12 {
+  animation: starTwinkle 1.4s ease-in-out infinite;
+}
+.star13 {
+  animation: starTwinkle 1.5s ease-in-out infinite;
+} */
+
+@keyframes starTwinkle {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
