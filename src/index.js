@@ -160,7 +160,7 @@ const starTwinkle = (num) => {
 
   const topRandom = Math.random() * 100;
   const leftRandom = Math.random() * 100;
-  const sizeRandom = Math.random() * (25 - 5) + 5;
+  const sizeRandom = Math.random() * (12.5 - 5) + 5;
 
   const star = document.querySelector(`.starRandom${num}`);
 
@@ -168,7 +168,7 @@ const starTwinkle = (num) => {
   star.style.left = `${leftRandom}vw`;
   star.style.width = `${sizeRandom}px`;
   star.style.height = `${sizeRandom}px`;
-  setTimeout(() => star.remove(), (num % 10) * 200 * 2);
+  setTimeout(() => star.remove(), (num % 10) * 100 * 2);
 };
 
 const randomTwinkle = (num) => {
@@ -179,6 +179,6 @@ const randomTwinkle = (num) => {
 };
 
 setInterval(() => {
-  const starNumber = Math.floor(Math.random() * 200);
+  const starNumber = Math.floor(Math.random() * 100);
   randomTwinkle(starNumber);
 }, 50);

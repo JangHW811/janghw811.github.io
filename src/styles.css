@@ -89,7 +89,7 @@ html {
 }
 .parallaxScroll {
   height: 16000px;
-  background-color: #0e0f30;
+  background-color: #101122;
   z-index: 2;
 }
 .backgroundTop {
@@ -378,7 +378,7 @@ html {
   position: relative;
   display: flex;
   width: 100vw;
-  background-color: #101122;
+  background-color: #0e0e2e;
   height: 300px;
   height: auto;
   z-index: 1;
@@ -423,7 +423,8 @@ html {
 
 .introducePeople .introduceStarBg {
   position: absolute;
-  width: 55vw;
+  width: 50vw;
+  z-index: 0;
 }
 .introducePeople .peopleContainer {
   display: flex;
@@ -435,6 +436,12 @@ html {
   grid-column-start: 1;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
+}
+.introducePeople .peopleContainer img.line {
+  z-index: 0;
+}
+.introducePeople .peopleContainer img.photo {
+  z-index: 1;
 }
 .introducePeople .peopleContainer .humanContainer {
   display: grid;
@@ -467,18 +474,19 @@ html {
 }
 .introducePeople .humanContainer1 {
   flex: 14;
-  margin-left: -1.1vw;
+  margin-left: -0.9vw;
 }
 .introducePeople .humanContainer2 {
   flex: 18;
-  margin-left: -2.9vw;
+  margin-left: -2.2vw;
 }
 .introducePeople .humanContainer3 {
-  margin-left: -1.6vw;
+  margin-left: -1.2vw;
   flex: 17;
 }
 
 .introduceFont {
+  z-index: 1;
   font-family: MaruBuriot;
   font-size: 30px;
   font-weight: 200;
@@ -488,13 +496,14 @@ html {
   letter-spacing: -0.85px;
   text-align: center;
   color: #e4ba9b;
-  margin-bottom: 92px;
+  margin-bottom: 6vw;
 }
 
 .peopleContainer {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  z-index: 1;
 }
 
 .peopleContainer .humanContainer img.photo {
@@ -582,7 +591,7 @@ html {
 }
 .storeContainer .goodsContainer .goodsItem.comingsoon .goodsFrame::after {
   content: 'COMING\ASOON';
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.2);
   font-family: MaruBuriot;
   font-size: 30px;
   font-weight: normal;
@@ -609,7 +618,7 @@ html {
   z-index: 10;
 }
 .storeContainer .goodsContainer .goodsFrame > img.goods {
-  width: 180%;
+  width: 100%;
   align-self: center;
   justify-self: center;
   z-index: 1;
@@ -853,34 +862,34 @@ footer p {
 }
 
 .star1 {
-  animation: starTwinkle 0.5s ease-in-out infinite;
+  animation: starTwinkle 0.25s ease-in-out infinite;
 }
 .star2 {
-  animation: starTwinkle 1s ease-in-out infinite;
+  animation: starTwinkle 0.5s ease-in-out infinite;
 }
 .star3 {
-  animation: starTwinkle 1.5 ease-in-out infinite;
+  animation: starTwinkle 0.75 ease-in-out infinite;
 }
 .star4 {
-  animation: starTwinkle 2s ease-in-out infinite;
+  animation: starTwinkle 1s ease-in-out infinite;
 }
 .star5 {
-  animation: starTwinkle 2.5s ease-in-out infinite;
+  animation: starTwinkle 1.25s ease-in-out infinite;
 }
 .star6 {
-  animation: starTwinkle 3s ease-in-out infinite;
+  animation: starTwinkle 1.5s ease-in-out infinite;
 }
 .star7 {
-  animation: starTwinkle 3.5s ease-in-out infinite;
+  animation: starTwinkle 1.75s ease-in-out infinite;
 }
 .star8 {
-  animation: starTwinkle 4s ease-in-out infinite;
+  animation: starTwinkle 2s ease-in-out infinite;
 }
 .star9 {
-  animation: starTwinkle 4.5s ease-in-out infinite;
+  animation: starTwinkle 2.25s ease-in-out infinite;
 }
 .star10 {
-  animation: starTwinkle 5s ease-in-out infinite;
+  animation: starTwinkle 2.5s ease-in-out infinite;
 }
 
 @keyframes starTwinkle {
