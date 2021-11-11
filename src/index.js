@@ -135,3 +135,36 @@ window.onload = function () {
     scrollTo(0, 0);
   }, 100);
 };
+
+const starTwinkle = (num) => {
+  const createStar = document.createElement('div');
+  createStar.classList = `star star${num}`;
+
+  const background = document.querySelector('.background');
+  background.append(createStar);
+
+  const topRandom = Math.random() * 100;
+  const leftRandom = Math.random() * 100;
+  const sizeRandom = Math.random() * (25 - 5) + 5;
+
+  const star = document.querySelector(`.star${num}`);
+
+  console.log('star', star);
+  star.style.top = `${topRandom}vh`;
+  star.style.left = `${leftRandom}vw`;
+  star.style.width = `${sizeRandom}px`;
+  star.style.height = `${sizeRandom}px`;
+  setTimeout(() => star.remove(), 1000);
+};
+
+const randomTwinkle = (num) => {
+  const interval = Math.random() * 2000;
+  setTimeout(() => {
+    starTwinkle(num);
+  }, interval);
+};
+
+setInterval(() => {
+  const starNumber = Math.floor(Math.random() * 100);
+  randomTwinkle(starNumber);
+}, 50);
