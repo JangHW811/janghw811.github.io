@@ -802,7 +802,7 @@ footer p {
   }
 
   .introducePeople {
-    height: 90vh;
+    height: 83vh;
   }
 
   .youtubeContainer .storyYoutube {
@@ -816,11 +816,17 @@ footer p {
   }
 
   .introducePeople .peopleContainer {
-    min-height: 40vh;
+    min-height: 31vh;
   }
 
   .introducePeople .cardContainer {
-    min-height: 45vh;
+    min-height: 35vh;
+  }
+
+  .introducePeople .introduceStarBg {
+    left:0px;
+    right:0px;
+    margin:0 auto;
   }
 
   .storeContainer .goodsContainer .goodsItem.comingsoon .goodsFrame::after {
