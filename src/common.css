@@ -116,3 +116,9 @@ footer#footer {
   width: 100%;
   z-index: 1;
 }
+
+.caution {
+  background: unset;
+  padding-left: 0px;
+  margin-top: 0px;
+}
