@@ -209,6 +209,5 @@ const randomTwinkle = (num) => {
 
 setInterval(() => {
   const starNumber = Math.floor(Math.random() * 100);
-  // randomTwinkle(starNumber);
+  randomTwinkle(starNumber);
 }, 50);
-const starNumber = Math.floor(Math.random() * 100);
