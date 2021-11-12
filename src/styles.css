@@ -1,17 +1,17 @@
 @font-face {
   font-family: MaruBuriot;
   font-weight: normal;
-  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/MaruBuri-Regular.otf);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/MaruBuri-Regular.woff);
 }
 @font-face {
   font-family: MaruBuriot;
   font-weight: 200;
-  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/MaruBuri-ExtraLight.otf);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/MaruBuri-ExtraLight.woff);
 }
 @font-face {
   font-family: MaruBuriot;
   font-weight: 300;
-  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/MaruBuri-Light.otf);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/MaruBuri-Light.woff);
 }
 
 @font-face {
@@ -30,6 +30,8 @@
   margin: 0;
   padding: 0;
 }
+
+br { font-family:dotum;}
 
 body {
   background-color: #0e0f30;
