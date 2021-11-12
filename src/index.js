@@ -15,13 +15,13 @@ if (!Element.prototype.append) {
   Element.prototype.append = Element.prototype.appendChild;
 }
 
-if (!('remove' in Element.prototype)) {
-  Element.prototype.remove = function () {
-    if (this.parentNode) {
-      this.parentNode.removeChild(this);
-    }
-  };
-}
+// if (!('remove' in Element.prototype)) {
+//   Element.prototype.remove = function () {
+//     if (this.parentNode) {
+//       this.parentNode.removeChild(this);
+//     }
+//   };
+// }
 
 const onScroll = () => {
   const yOffset = (window.pageYOffset / contentHeight).toFixed(2);
@@ -42,11 +42,16 @@ const onScroll = () => {
   const layer4 = document.querySelector('.layer4');
   const layer5 = document.querySelector('.layer5');
 
-  if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) {
-    if(positionY > 1440){fadeContainer.style.top = '27%';}
-    else {fadeContainer.style.top = '42%';}
+  if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || agent.indexOf('msie') != -1) {
+    if (positionY > 1440) {
+      fadeContainer.style.top = '27%';
+    } else {
+      fadeContainer.style.top = '42%';
+    }
 
-    if(positionY < 15000){fadeContainer.style.transform  = `translateY(0)`;}
+    if (positionY < 15000) {
+      fadeContainer.style.transform = `translateY(0)`;
+    }
   }
 
   const fadeTiming = 400;
@@ -174,15 +179,21 @@ const starTwinkle = (num) => {
 
   const topRandom = Math.random() * 100;
   const leftRandom = Math.random() * 100;
-  const sizeRandom = Math.random() * (12.5 - 5) + 5;
+  const sizeRandom = Math.random() * (40 - 20) + 5;
 
-  const star = document.querySelector(`.starRandom${num}`);
+  createStar.style.top = `${topRandom}vh`;
+  createStar.style.left = `${leftRandom}vw`;
+  createStar.style.width = `${sizeRandom}px`;
+  createStar.style.height = `${sizeRandom}px`;
+  setTimeout(() => createStar.remove(), (num % 10) * 200 + 2000);
 
-  star.style.top = `${topRandom}vh`;
-  star.style.left = `${leftRandom}vw`;
-  star.style.width = `${sizeRandom}px`;
-  star.style.height = `${sizeRandom}px`;
-  setTimeout(() => star.remove(), (num % 10) * 100 * 2);
+  // const star = document.querySelector(`.starRandom${num}`);
+
+  // star.style.top = `${topRandom}vh`;
+  // star.style.left = `${leftRandom}vw`;
+  // star.style.width = `${sizeRandom}px`;
+  // star.style.height = `${sizeRandom}px`;
+  // setTimeout(() => createStar.remove(), (num % 10) * 200 + 2000);
 };
 
 const randomTwinkle = (num) => {
@@ -196,3 +207,5 @@ setInterval(() => {
   const starNumber = Math.floor(Math.random() * 100);
   randomTwinkle(starNumber);
 }, 50);
+const starNumber = Math.floor(Math.random() * 100);
+randomTwinkle(starNumber);

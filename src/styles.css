@@ -31,7 +31,9 @@
   padding: 0;
 }
 
-br { font-family:dotum;}
+br {
+  font-family: dotum;
+}
 
 body {
   background-color: #0e0f30;
@@ -809,7 +811,7 @@ html {
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .moonBackground {
-    width : auto;
+    width: auto;
   }
 
   .fadeContainer {
@@ -839,9 +841,9 @@ html {
   }
 
   .introducePeople .introduceStarBg {
-    left:0px;
-    right:0px;
-    margin:0 auto;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
   }
 
   .storeContainer .goodsContainer .goodsItem.comingsoon .goodsFrame::after {
@@ -862,40 +864,61 @@ html {
 
 .star {
   position: absolute;
-  animation: starTwinkle 2s ease-in-out forwards;
-  background: url('../assets/images/star_ylw.png');
+  background: url('../assets/images/star_twk.png');
   background-size: cover;
 }
 
 .star1 {
-  animation: starTwinkle 0.25s ease-in-out infinite;
+  animation: starTwinkle 2.2s ease-in-out forwards;
 }
 .star2 {
-  animation: starTwinkle 0.5s ease-in-out infinite;
+  animation: starTwinkle 2.4s ease-in-out forwards;
 }
 .star3 {
-  animation: starTwinkle 0.75 ease-in-out infinite;
+  animation: starTwinkle 2.6s ease-in-out forwards;
 }
 .star4 {
-  animation: starTwinkle 1s ease-in-out infinite;
+  animation: starTwinkle 2.8s ease-in-out forwards;
 }
 .star5 {
-  animation: starTwinkle 1.25s ease-in-out infinite;
+  animation: starTwinkle 3s ease-in-out forwards;
 }
 .star6 {
-  animation: starTwinkle 1.5s ease-in-out infinite;
+  animation: starTwinkle 3.2s ease-in-out forwards;
 }
 .star7 {
-  animation: starTwinkle 1.75s ease-in-out infinite;
+  animation: starTwinkle 3.4s ease-in-out forwards;
 }
 .star8 {
-  animation: starTwinkle 2s ease-in-out infinite;
+  animation: starTwinkle 3.6s ease-in-out forwards;
 }
 .star9 {
-  animation: starTwinkle 2.25s ease-in-out infinite;
+  animation: starTwinkle 3.8s ease-in-out forwards;
 }
 .star10 {
+  animation: starTwinkle 4s ease-in-out forwards;
+}
+
+.fixedStar {
+  position: absolute;
+  background: url('../assets/images/fixedStar.png');
+  background-size: cover;
+}
+
+.fixedStar1 {
+  top: 17vh;
+  left: 12vw;
+  animation: starTwinkle 2.1s ease-in-out infinite;
+}
+.fixedStar2 {
+  top: 27vh;
+  left: 88vw;
   animation: starTwinkle 2.5s ease-in-out infinite;
+}
+.fixedStar3 {
+  top: 34vh;
+  left: 45vw;
+  animation: starTwinkle 2.8s ease-in-out infinite;
 }
 
 @keyframes starTwinkle {
