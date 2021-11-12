@@ -115,12 +115,16 @@ const onScroll = () => {
 };
 
 const onResize = () => {
+  const isMobileWidth = window.innerWidth < 768;
   const youtubeContainer = document.querySelector('.youtubeContainer > img.youtubeFrame');
   const youtubeIframe = document.querySelector('.youtubeContainer > iframe');
   console.log('window.innerWidth', window.innerWidth);
-  youtubeContainer.style.width = `${window.innerWidth * 0.36}px`;
-  youtubeIframe.width = `${window.innerWidth * 0.31}px`;
-  youtubeIframe.height = `${window.innerWidth * 0.31 * (41 / 73)}px`;
+  const containerWidth = isMobileWidth ? window.visualViewport.width - 20 : window.innerWidth * 0.36;
+  const youtubeWidth = isMobileWidth ? window.visualViewport.width - 70 : window.innerWidth * 0.31;
+  const youtubeHeight = isMobileWidth ? (window.visualViewport.width - 70) * (41 / 73) : window.innerWidth * 0.31 * (41 / 73);
+  youtubeContainer.style.width = `${containerWidth}px`;
+  youtubeIframe.width = `${youtubeWidth}px`;
+  youtubeIframe.height = `${youtubeHeight}px`;
   onScroll();
 };
 onResize();
@@ -205,7 +209,6 @@ const randomTwinkle = (num) => {
 
 setInterval(() => {
   const starNumber = Math.floor(Math.random() * 100);
-  randomTwinkle(starNumber);
+  // randomTwinkle(starNumber);
 }, 50);
 const starNumber = Math.floor(Math.random() * 100);
-randomTwinkle(starNumber);

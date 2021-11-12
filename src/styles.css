@@ -158,6 +158,8 @@ html {
 }
 
 .flag {
+  width: 339px;
+  height: 69px;
   position: absolute;
   bottom: -27px;
 }
@@ -179,7 +181,7 @@ html {
   border: 40px solid;
   border-image-source: url('../assets/images/fingerFrame2.png');
   width: 34.3vw;
-  margin: 100px 0;
+  margin: 100px 0 50px;
   border-image-slice: 40;
   display: flex;
   flex-direction: column;
@@ -200,7 +202,7 @@ html {
 }
 
 .fingerToggleContainer {
-  bottom: -200px;
+  bottom: -124px;
   width: 100%;
 }
 
@@ -208,7 +210,7 @@ html {
   background: url('../assets/images/fingerDown.png') no-repeat;
   background-size: contain;
   width: 69px;
-  height: 199px;
+  height: 126px;
 }
 .open .fingerToggle {
   background: url('../assets/images/fingerUp.png') no-repeat;
@@ -246,6 +248,7 @@ html {
 }
 .storyListContainer .fontContainer {
   text-align: left;
+  margin-right: 25px;
 }
 .open .storyListContainer {
   max-height: 800px;
@@ -262,9 +265,15 @@ html {
 .storyItemContainer:not(:last-child) {
   border-bottom: 1px solid rgba(228, 186, 155, 0.5);
 }
-.storyItemContainer > .flex > img {
+.storyItemContainer > div > img {
+  width: 145px;
+  height: 81px;
   margin-right: 25px;
   border: 1px solid #e4ba9b;
+}
+.storyItemContainer .arrowRight > img {
+  width: 41px;
+  height: 31px;
 }
 .storyItemContainer .arrowRight:hover {
   animation: buttonEffect 0.1s linear forwards;
@@ -306,26 +315,6 @@ html {
   position: fixed;
   width: 100%;
 }
-
-/* .fadeContainer > .layer0 > img {
-  width: 17vw;
-}
-.fadeContainer > .layer1 > img {
-  width: 17vw;
-}
-.fadeContainer > .layer2 > img {
-  width: 24.5vw;
-}
-.fadeContainer > .layer3 > img {
-  width: 24.5vw;
-}
-.fadeContainer > .layer4 > img {
-  width: 17.2vw;
-}
-.fadeContainer > .layer5 > img {
-  width: 17vw;
-  margin-bottom: 40px;
-} */
 
 .fadeContainer > div > img {
   width: 24.5vw;
@@ -403,6 +392,9 @@ html {
   width: 10px;
   height: 96px;
   margin: 50px;
+}
+.bubbleImage2 {
+  margin: 100px 0 30px;
 }
 
 .kingslmanLogo > img {
@@ -661,6 +653,8 @@ html {
 }
 
 .contentFooter {
+  position: relative;
+  z-index: 1;
   padding: 100px 36px;
   background: #000;
   display: flex;
@@ -698,6 +692,20 @@ html {
   color: #6b6b6b;
 }
 
+@media screen and (max-width: 1600px) {
+  .flag {
+    width: 237px;
+    height: 48px;
+    bottom: -16px;
+  }
+  .fingerToggle {
+    width: 48px;
+    height: 88px;
+  }
+  .fingerToggleContainer {
+    bottom: -63px;
+  }
+}
 @media screen and (max-width: 768px) {
   .moonBackground {
     margin-right: 43px;
@@ -719,6 +727,7 @@ html {
     flex-direction: column;
     align-items: flex-end;
   }
+
   .storeContainer .goodsContainer .goodsFrame {
     width: 121px;
     height: 159px;
@@ -742,8 +751,20 @@ html {
   .storeContainer .goodsContainer {
     display: grid;
     grid-template-columns: auto auto;
-    gap: 81px 58px;
-    margin: 94px 0 106px;
+    gap: 25px 47px;
+    margin: 47px 0 25px;
+  }
+
+  .storeContainer .goodsContainer .goodsDescription {
+    margin-top: 21px;
+    font-size: 9px;
+    height: 21px;
+  }
+  .storeContainer .goodsContainer .flagFont {
+    font-size: 10px;
+  }
+  .storeContainer .goodsContainer .goodsItem.comingsoon .goodsFrame::after {
+    font-size: 15px;
   }
   .bluemoon > img {
     width: 90px;
@@ -771,41 +792,146 @@ html {
   }
   .fadeContainer {
     z-index: 4;
-    top: calc(40%);
+    top: 50%;
     position: fixed;
     width: 100%;
   }
 
-  /* .fadeContainer > .layer0 > img {
-    width: 191px;
-  }
-  .fadeContainer > .layer1 > img {
-    width: 245px;
-  }
-  .fadeContainer > .layer2 > img {
-    width: 245px;
-  }
-  .fadeContainer > .layer3 > img {
-    width: 245px;
-  }
-  .fadeContainer > .layer4 > img {
-    width: 245px;
-  }
-  .fadeContainer > .layer5 > img {
-    width: 245px;
-  } */
   .fadeContainer > div > img {
     width: 245px;
   }
 
-  .fingerFrame {
-    width: 94vw;
-  }
   .atLastFont {
     font-size: 17.5px;
   }
   .introduceFont {
     font-size: 15px;
+  }
+
+  .introducePeople .introduceStarBg {
+    width: 100vw;
+  }
+  .introducePeople .peopleContainer {
+    display: flex;
+    width: 100%;
+    padding: 0 22px 0 14px;
+  }
+  .introducePeople .cardContainer {
+    width: 100%;
+    padding: 0 10px;
+    display: grid;
+    display: -ms-grid;
+  }
+
+  .introducePeople .humanContainer0 {
+    flex: 21;
+  }
+  .introducePeople .humanContainer1 {
+    flex: 14;
+    margin-left: -2.5vw;
+  }
+  .introducePeople .humanContainer2 {
+    flex: 18;
+    margin-left: -6.5vw;
+  }
+  .introducePeople .humanContainer3 {
+    margin-left: -3.3vw;
+    flex: 17;
+  }
+  .lastStoryOpen {
+    margin-top: 6px;
+    font-size: 14.9px;
+    height: unset;
+  }
+  .storyItemContainer > .flex > img {
+    margin-right: 17.5px;
+  }
+  .storyTitleFont {
+    font-size: 12px;
+  }
+  .storyContentFont {
+    font-size: 9px;
+  }
+
+  .storyItemContainer > div > img {
+    width: 65px;
+    height: 35px;
+    margin-right: 12.5;
+    border: 1px solid #e4ba9b;
+  }
+  .storyItemContainer .arrowRight:hover {
+    animation: buttonEffect 0.1s linear forwards;
+    transform-origin: left;
+  }
+  .storyTitleFont {
+    font-size: 14px;
+  }
+  .storyContentFont {
+    font-size: 12px;
+  }
+  .fingerFrame {
+    width: 94vw;
+    border: 20px solid;
+    border-image-source: url('../assets/images/fingerFrame2.png');
+    margin: 100px 0 50px;
+    border-image-slice: 40;
+    display: flex;
+    flex-direction: column;
+  }
+  .storyItemContainer .arrowRight > img {
+    width: 18px;
+    height: 13.5px;
+  }
+  .storyItemContainer .arrowRight:hover {
+    animation: unset;
+  }
+  .fingerToggle {
+    width: 36px;
+    height: 63px;
+  }
+  .fingerToggle:hover {
+    animation: unset;
+  }
+  .open .fingerToggle:hover {
+    animation: unset;
+  }
+  .bubbleImage2 {
+    margin: unset;
+  }
+  .storeContainer .welcomeFont {
+    font-size: 20px;
+  }
+  .storeContainer .kingslmanMemberFont {
+    font-size: 15px;
+  }
+
+  .contentFooter {
+    padding: 50px 18px;
+  }
+
+  .contentFooter .caution {
+    font-family: 'NanumBarunGothicOTF';
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 1.2px;
+    text-align: left;
+    color: #9a97bb;
+    margin-bottom: 20px;
+  }
+
+  .contentFooter p {
+    font-family: 'NanumBarunGothicOTF';
+    font-size: 12px;
+    font-weight: 200;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #6b6b6b;
   }
 }
 
