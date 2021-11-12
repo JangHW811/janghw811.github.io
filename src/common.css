@@ -118,7 +118,7 @@ footer#footer {
 }
 
 .caution {
-  background: unset;
+  background: none;
   padding-left: 0px;
   margin-top: 0px;
 }
