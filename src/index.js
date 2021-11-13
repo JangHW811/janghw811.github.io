@@ -4,6 +4,7 @@ const contentHeight = parallaxScrollHeight + window.innerHeight;
 const rate = (1 / (elLength + 1)).toFixed(2);
 let index = null;
 let scaleStartPosition = 8000;
+let isMobileWidth = window.innerWidth < 768;
 
 const agent = navigator.userAgent.toLowerCase();
 
@@ -93,15 +94,18 @@ const onScroll = () => {
   const buildingLayerTopPosition = 100 - positionY / 40;
   layerBuildingContainer.style.top = `${buildingLayerTopPosition >= 0 ? buildingLayerTopPosition : 0}vh`;
 
+  console.log('positionY', positionY);
+  const scaleMin = isMobileWidth ? 2 : 1;
+  const scaleMax = isMobileWidth ? 2.6 : 1.3;
   // const scaleStartPosition = parallaxScrollHeight - 2500;
   const bottomPositionForScale = positionY - scaleStartPosition;
-  const scale = 1 + bottomPositionForScale / 3000;
+  const scale = scaleMin + bottomPositionForScale / 3000;
   const headerHeight = document.querySelector('.header_menu_wrap')
     ? document.querySelector('.header_menu_wrap').offsetHeight + 10
     : 0;
   const bottomPosition = positionY - (parallaxScrollHeight - window.innerHeight) - headerHeight;
   if (scaleStartPosition && scaleStartPosition <= positionY) {
-    const minMaxScale = scale < 1 ? 1 : scale > 1.3 ? 1.3 : scale;
+    const minMaxScale = scale < scaleMin ? scaleMin : scale > scaleMax ? scaleMax : scale;
     if (parallaxScrollHeight - window.innerHeight <= positionY) {
       layerBuildingContainer.style.transform = `translateY(-${bottomPosition}px) scale(${minMaxScale})`;
       fadeContainer.style.transform = `translateY(-${bottomPosition}px)`;
@@ -115,7 +119,8 @@ const onScroll = () => {
 };
 
 const onResize = () => {
-  const isMobileWidth = window.innerWidth < 768;
+  isMobileWidth = window.innerWidth < 768;
+
   const youtubeContainer = document.querySelector('.youtubeContainer > img.youtubeFrame');
   const youtubeIframe = document.querySelector('.youtubeContainer > iframe');
   console.log('window.innerWidth', window.innerWidth);
@@ -209,5 +214,5 @@ const randomTwinkle = (num) => {
 
 setInterval(() => {
   const starNumber = Math.floor(Math.random() * 100);
-  randomTwinkle(starNumber);
+  // randomTwinkle(starNumber);
 }, 50);

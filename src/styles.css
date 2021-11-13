@@ -933,6 +933,10 @@ html {
     text-align: left;
     color: #6b6b6b;
   }
+  .layerBuildingContainer {
+    transform: scale(2);
+    transform-origin: bottom;
+  }
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
