@@ -1,9 +1,6 @@
 const elLength = 7;
-const parallaxScrollHeight = 16000;
-const contentHeight = parallaxScrollHeight + window.innerHeight;
 const rate = (1 / (elLength + 1)).toFixed(2);
 let index = null;
-let scaleStartPosition = 8000;
 let isMobileWidth = window.innerWidth < 768;
 
 const agent = navigator.userAgent.toLowerCase();
@@ -25,6 +22,17 @@ if (!Element.prototype.append) {
 // }
 
 const onScroll = () => {
+  if (isMobileWidth) {
+    onScrollMobile();
+  } else {
+    onScrollPC();
+  }
+};
+
+const onScrollPC = () => {
+  const parallaxScrollHeight = 16000;
+  const contentHeight = parallaxScrollHeight + window.innerHeight;
+  const scaleStartPosition = 8000;
   const yOffset = (window.pageYOffset / contentHeight).toFixed(2);
   const newIndex = parseInt(yOffset / rate);
   if (index !== newIndex) {
@@ -118,12 +126,89 @@ const onScroll = () => {
   }
 };
 
+const onScrollMobile = () => {
+  const parallaxScrollHeight = window.innerHeight * 20;
+  const contentHeight = parallaxScrollHeight + window.innerHeight;
+  const ratio = window.innerWidth / window.innerHeight;
+  const ratio2 = window.innerHeight / window.innerWidth;
+
+  const positionY = window.pageYOffset;
+  const unitNumber = contentHeight / elLength;
+  const background = document.querySelector('.background');
+  background.style.top = `-${positionY / 415}%`;
+
+  const fadeContainer = document.querySelector('.fadeContainer');
+  const layer0 = document.querySelector('.layer0');
+  const layer1 = document.querySelector('.layer1');
+  const layer2 = document.querySelector('.layer2');
+  const layer3 = document.querySelector('.layer3');
+  const layer4 = document.querySelector('.layer4');
+  const layer5 = document.querySelector('.layer5');
+
+  const fadeTiming = 400 * ratio;
+  const fadeLong = 2.7 * ratio;
+  layer0.style.opacity = fadeLong - (Math.abs(positionY - (fadeTiming - 100)) / (fadeTiming - 100)) * ratio;
+  layer1.style.opacity = fadeLong - (Math.abs(positionY - unitNumber) / fadeTiming) * ratio;
+  layer2.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 2) / fadeTiming) * ratio;
+  layer3.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 3) / fadeTiming) * ratio;
+  layer4.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 4) / fadeTiming) * ratio;
+  layer5.style.opacity = -(fadeLong - ((positionY - unitNumber * 4.5) / fadeTiming) * ratio);
+
+  const building1Layer = document.querySelector('.building1Layer');
+  const building2Layer = document.querySelector('.building2Layer');
+  const building3Layer = document.querySelector('.building3Layer');
+  const building4Layer = document.querySelector('.building4Layer');
+  const layerBuildingContainer = document.querySelector('.layerBuildingContainer');
+
+  const positionHandle = (layer, layerPosition) => {
+    const movePositionPixel = (layerPosition / 1000) * ratio;
+    const translatNumber = layerPosition - ((movePositionPixel * positionY) / 3) * ratio;
+    if (translatNumber >= 0) {
+      layer.style.transform = `translateY(${translatNumber}px)`;
+    } else {
+      layer.style.transform = `translateY(0)`;
+    }
+  };
+
+  positionHandle(building1Layer, window.innerHeight * 0.2);
+  positionHandle(building2Layer, window.innerHeight * 0.4);
+  positionHandle(building3Layer, window.innerHeight * 0.6);
+  positionHandle(building4Layer, window.innerHeight * 0.8);
+
+  const buildingLayerTopPosition = 0;
+  layerBuildingContainer.style.top = `${buildingLayerTopPosition >= 0 ? buildingLayerTopPosition : 0}vh`;
+
+  const scaleMin = 2;
+  const scaleMax = 2.6;
+  const headerHeight = document.querySelector('.header_menu_wrap')
+    ? document.querySelector('.header_menu_wrap').offsetHeight + 10
+    : 0;
+
+  const scaleStartPosition = (parallaxScrollHeight / 3) * ratio2;
+  const bottomPositionForScale = positionY - scaleStartPosition;
+  const scale = scaleMin + bottomPositionForScale / 3000;
+  const bottomPosition = positionY - (parallaxScrollHeight - window.innerHeight) - headerHeight;
+  console.log('position', positionY, scaleStartPosition, bottomPosition);
+
+  if (scaleStartPosition && scaleStartPosition <= positionY) {
+    const minMaxScale = scale < scaleMin ? scaleMin : scale > scaleMax ? scaleMax : scale;
+    if (parallaxScrollHeight - window.innerHeight <= positionY) {
+      layerBuildingContainer.style.transform = `translateY(-${bottomPosition}px) scale(${minMaxScale})`;
+      fadeContainer.style.transform = `translateY(-${bottomPosition}px)`;
+    } else {
+      layerBuildingContainer.style.transform = `scale(${minMaxScale})`;
+    }
+  } else {
+    layerBuildingContainer.style.transform = null;
+    fadeContainer.style.transform = null;
+  }
+};
+
 const onResize = () => {
   isMobileWidth = window.innerWidth < 768;
 
   const youtubeContainer = document.querySelector('.youtubeContainer > img.youtubeFrame');
   const youtubeIframe = document.querySelector('.youtubeContainer > iframe');
-  console.log('window.innerWidth', window.innerWidth);
   const containerWidth = isMobileWidth ? window.visualViewport.width - 20 : window.innerWidth * 0.36;
   const youtubeWidth = isMobileWidth ? window.visualViewport.width - 70 : window.innerWidth * 0.31;
   const youtubeHeight = isMobileWidth ? (window.visualViewport.width - 70) * (41 / 73) : window.innerWidth * 0.31 * (41 / 73);

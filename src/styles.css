@@ -709,7 +709,7 @@ html {
 @media screen and (max-width: 768px) {
   .moonBackground {
     margin-right: 43px;
-    margin-top: 200px;
+    margin-top: 30%;
     width: 96px;
     height: 96.5px;
   }
@@ -719,13 +719,16 @@ html {
     position: fixed;
     z-index: 1;
     width: 100vw;
-    height: 16000px;
+    height: 2000vh;
     background-image: url('../assets/images/starryStarM.png');
     background-repeat: repeat;
     background-size: contain;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+  }
+  .parallaxScroll {
+    height: 2000vh;
   }
 
   .storeContainer .goodsContainer .goodsFrame {
