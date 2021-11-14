@@ -39,6 +39,7 @@ body {
   background-color: #0e0f30;
   overscroll-behavior: none;
   overflow-x: hidden;
+  overflow-y: hidden;
   font-family: 'MaruBuriot', sans-serif;
 }
 
@@ -332,7 +333,9 @@ html {
 .layerBuildingContainer {
   position: fixed;
   height: 100vh;
+  /* height: calc(var(--vh, 1vh) * 100); */
   top: 100vh;
+  /* top: calc(var(--vh, 1vh) * 100); */
   display: flex;
   justify-content: flex-end;
   width: 100vw;
@@ -719,7 +722,8 @@ html {
     position: fixed;
     z-index: 1;
     width: 100vw;
-    height: 2000vh;
+    height: 16000px;
+    /* height: calc(var(--vh, 1vh) * 2000); */
     background-image: url('../assets/images/starryStarM.png');
     background-repeat: repeat;
     background-size: contain;
@@ -728,7 +732,8 @@ html {
     align-items: flex-end;
   }
   .parallaxScroll {
-    height: 2000vh;
+    height: 16000px;
+    /* height: calc(var(--vh, 1vh) * 2000); */
   }
 
   .storeContainer .goodsContainer .goodsFrame {
@@ -1064,4 +1069,65 @@ html {
   100% {
     opacity: 0;
   }
+}
+
+#log {
+  position: fixed;
+  font-size: 15px;
+  top: 0;
+  left: 0;
+  color: yellowgreen;
+}
+
+.progress {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: #101122;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ring {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border: 10px solid transparent;
+  border-top: 10px solid #e4ba9b;
+  border-radius: 50%;
+  animation: rotateProgress 2s ease-in-out infinite;
+}
+@keyframes rotateProgress {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ring::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 11px;
+  background: #e4ba9b;
+}
+.ring::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 11px;
+  background: #e4ba9b;
+  box-shadow: 1px 1px 30px 10px #a68eff;
 }

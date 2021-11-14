@@ -1,7 +1,16 @@
 const elLength = 7;
 const rate = (1 / (elLength + 1)).toFixed(2);
+let isMobileWidth = false;
+let windowHeight = 0;
+let windowWidth = 0;
 let index = null;
-let isMobileWidth = window.innerWidth < 768;
+document.onreadystatechange = function (e) {
+  console.log('document.readyState', document.readyState);
+  if (document.readyState === 'complete') {
+    document.querySelector('.progress').style.display = 'none';
+    document.body.style.overflowY = 'auto';
+  }
+};
 
 const agent = navigator.userAgent.toLowerCase();
 
@@ -22,6 +31,10 @@ if (!Element.prototype.append) {
 // }
 
 const onScroll = () => {
+  windowHeight = window.visualViewport.height;
+  windowWidth = window.visualViewport.width;
+  isMobileWidth = windowWidth < 768;
+  // console.log('isMobileWidth', isMobileWidth);
   if (isMobileWidth) {
     onScrollMobile();
   } else {
@@ -31,7 +44,7 @@ const onScroll = () => {
 
 const onScrollPC = () => {
   const parallaxScrollHeight = 16000;
-  const contentHeight = parallaxScrollHeight + window.innerHeight;
+  const contentHeight = parallaxScrollHeight + windowHeight;
   const scaleStartPosition = 8000;
   const yOffset = (window.pageYOffset / contentHeight).toFixed(2);
   const newIndex = parseInt(yOffset / rate);
@@ -79,15 +92,15 @@ const onScrollPC = () => {
   const layerBuildingContainer = document.querySelector('.layerBuildingContainer');
 
   const positionHandle = (layer, layerPosition) => {
-    const movePositionPixel = window.innerHeight * (layerPosition / 100);
-    const translatNumber = layerPosition - (movePositionPixel * positionY) / (window.innerWidth * 60);
+    const movePositionPixel = windowHeight * (layerPosition / 100);
+    const translatNumber = layerPosition - (movePositionPixel * positionY) / (windowWidth * 60);
     if (translatNumber >= 0) {
       layer.style.transform = `translateY(${translatNumber}px)`;
     } else {
       layer.style.transform = `translateY(0)`;
     }
 
-    // if (scaleStartPosition === 0 && layerPosition === 1600 && translatNumber * (window.innerWidth / window.innerHeight) <= 500) {
+    // if (scaleStartPosition === 0 && layerPosition === 1600 && translatNumber * (windowWidth / windowHeight) <= 500) {
     //   scaleStartPosition = positionY;
     // } else {
     //   // scaleStartPosition = 0;
@@ -102,7 +115,7 @@ const onScrollPC = () => {
   const buildingLayerTopPosition = 100 - positionY / 40;
   layerBuildingContainer.style.top = `${buildingLayerTopPosition >= 0 ? buildingLayerTopPosition : 0}vh`;
 
-  console.log('positionY', positionY);
+  // console.log('positionY', positionY);
   const scaleMin = isMobileWidth ? 2 : 1;
   const scaleMax = isMobileWidth ? 2.6 : 1.3;
   // const scaleStartPosition = parallaxScrollHeight - 2500;
@@ -111,10 +124,10 @@ const onScrollPC = () => {
   const headerHeight = document.querySelector('.header_menu_wrap')
     ? document.querySelector('.header_menu_wrap').offsetHeight + 10
     : 0;
-  const bottomPosition = positionY - (parallaxScrollHeight - window.innerHeight) - headerHeight;
+  const bottomPosition = positionY - (parallaxScrollHeight - windowHeight) - headerHeight;
   if (scaleStartPosition && scaleStartPosition <= positionY) {
     const minMaxScale = scale < scaleMin ? scaleMin : scale > scaleMax ? scaleMax : scale;
-    if (parallaxScrollHeight - window.innerHeight <= positionY) {
+    if (parallaxScrollHeight - windowHeight <= positionY) {
       layerBuildingContainer.style.transform = `translateY(-${bottomPosition}px) scale(${minMaxScale})`;
       fadeContainer.style.transform = `translateY(-${bottomPosition}px)`;
     } else {
@@ -127,10 +140,10 @@ const onScrollPC = () => {
 };
 
 const onScrollMobile = () => {
-  const parallaxScrollHeight = window.innerHeight * 20;
-  const contentHeight = parallaxScrollHeight + window.innerHeight;
-  const ratio = window.innerWidth / window.innerHeight;
-  const ratio2 = window.innerHeight / window.innerWidth;
+  const parallaxScrollHeight = document.querySelector('.parallaxScroll').offsetHeight;
+  const contentHeight = parallaxScrollHeight + windowHeight;
+  const ratio = windowWidth / windowHeight;
+  const ratio2 = windowHeight / windowWidth;
 
   const positionY = window.pageYOffset;
   const unitNumber = contentHeight / elLength;
@@ -170,10 +183,10 @@ const onScrollMobile = () => {
     }
   };
 
-  positionHandle(building1Layer, window.innerHeight * 0.2);
-  positionHandle(building2Layer, window.innerHeight * 0.4);
-  positionHandle(building3Layer, window.innerHeight * 0.6);
-  positionHandle(building4Layer, window.innerHeight * 0.8);
+  positionHandle(building1Layer, windowHeight * 0.2);
+  positionHandle(building2Layer, windowHeight * 0.4);
+  positionHandle(building3Layer, windowHeight * 0.6);
+  positionHandle(building4Layer, windowHeight * 0.8);
 
   const buildingLayerTopPosition = 0;
   layerBuildingContainer.style.top = `${buildingLayerTopPosition >= 0 ? buildingLayerTopPosition : 0}vh`;
@@ -184,15 +197,15 @@ const onScrollMobile = () => {
     ? document.querySelector('.header_menu_wrap').offsetHeight + 10
     : 0;
 
-  const scaleStartPosition = (parallaxScrollHeight / 3) * ratio2;
+  const scaleStartPosition = ratio2 > 2 ? (parallaxScrollHeight / 2.7) * ratio2 : (parallaxScrollHeight / 3.7) * ratio2;
   const bottomPositionForScale = positionY - scaleStartPosition;
   const scale = scaleMin + bottomPositionForScale / 3000;
-  const bottomPosition = positionY - (parallaxScrollHeight - window.innerHeight) - headerHeight;
-  console.log('position', positionY, scaleStartPosition, bottomPosition);
+  const bottomPosition = positionY - (parallaxScrollHeight - windowHeight) - headerHeight;
+  console.log('position', positionY, scaleStartPosition, ratio2);
 
   if (scaleStartPosition && scaleStartPosition <= positionY) {
     const minMaxScale = scale < scaleMin ? scaleMin : scale > scaleMax ? scaleMax : scale;
-    if (parallaxScrollHeight - window.innerHeight <= positionY) {
+    if (parallaxScrollHeight - windowHeight <= positionY) {
       layerBuildingContainer.style.transform = `translateY(-${bottomPosition}px) scale(${minMaxScale})`;
       fadeContainer.style.transform = `translateY(-${bottomPosition}px)`;
     } else {
@@ -205,23 +218,35 @@ const onScrollMobile = () => {
 };
 
 const onResize = () => {
-  isMobileWidth = window.innerWidth < 768;
-
+  isMobileWidth = windowWidth < 768;
+  // if (!isMobileWidth || (isMobileWidth && windowHeight < window.innerHeight)) {
+  //   windowHeight = window.innerHeight;
+  //   windowWidth = window.innerWidth;
+  // }
+  windowHeight = window.innerHeight;
+  windowWidth = window.innerWidth;
+  const parallaxScrollHeight = document.querySelector('.parallaxScroll').offsetHeight;
+  console.log('parallaxScrollHeight', parallaxScrollHeight);
   const youtubeContainer = document.querySelector('.youtubeContainer > img.youtubeFrame');
   const youtubeIframe = document.querySelector('.youtubeContainer > iframe');
-  const containerWidth = isMobileWidth ? window.visualViewport.width - 20 : window.innerWidth * 0.36;
-  const youtubeWidth = isMobileWidth ? window.visualViewport.width - 70 : window.innerWidth * 0.31;
-  const youtubeHeight = isMobileWidth ? (window.visualViewport.width - 70) * (41 / 73) : window.innerWidth * 0.31 * (41 / 73);
+  const containerWidth = isMobileWidth ? window.visualViewport.width - 20 : windowWidth * 0.36;
+  const youtubeWidth = isMobileWidth ? window.visualViewport.width - 70 : windowWidth * 0.31;
+  const youtubeHeight = isMobileWidth ? (window.visualViewport.width - 70) * (41 / 73) : windowWidth * 0.31 * (41 / 73);
   youtubeContainer.style.width = `${containerWidth}px`;
   youtubeIframe.width = `${youtubeWidth}px`;
   youtubeIframe.height = `${youtubeHeight}px`;
   onScroll();
 };
-onResize();
 window.addEventListener('scroll', onScroll);
 
 // handle event
 window.addEventListener('resize', onResize);
+window.onload = () => {
+  // let vh = window.innerHeight * 0.01;
+  // document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  onResize();
+};
 
 (() => {
   const finger = document.querySelector('.fingerToggle');
@@ -299,5 +324,9 @@ const randomTwinkle = (num) => {
 
 setInterval(() => {
   const starNumber = Math.floor(Math.random() * 100);
-  // randomTwinkle(starNumber);
+  randomTwinkle(starNumber);
 }, 50);
+
+// window.console.log = (...message) => {
+// document.getElementById('log').innerHTML = message;
+// };

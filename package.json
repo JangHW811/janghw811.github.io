@@ -8,7 +8,7 @@
     "dev": "parcel ./build --open",
     "build": "parcel build index.html --out-dir build",
     "predeploy": "npm run build",
-    "deploy": "cp -r ./assets /Users/janghyeon-ung/workspace/navien && cp -r ./src /Users/janghyeon-ung/workspace/navien && cp ./index.html /Users/janghyeon-ung/workspace/navien"
+    "deploy": "gh-pages -d build"
   },
   "homepage": "https://janghw811.github.io/navi",
   "dependencies": {
