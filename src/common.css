@@ -359,4 +359,8 @@ footer#footer {
     background-color: #fff;
   }
 
+  html {
+    -webkit-tap-highlight-color : transparent;
+  }
+
 }
