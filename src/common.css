@@ -340,7 +340,8 @@ footer#footer {
   }
 
   #replyListArea {
-    padding : 15px;
+    padding : 0px;
+    display: none;
   }
 
   .container {
@@ -357,10 +358,15 @@ footer#footer {
 
   footer#footer {
     background-color: #fff;
+    margin-top:0px;
   }
 
   html {
     -webkit-tap-highlight-color : transparent;
+  }
+
+  .foot_banner_es img {
+    width: 100%;
   }
 
 }

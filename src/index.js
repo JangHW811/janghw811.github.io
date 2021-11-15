@@ -10,6 +10,8 @@ document.onreadystatechange = function (e) {
     document.querySelector('.progress').style.display = 'none';
     document.body.style.overflowY = 'auto';
   }
+
+  document.querySelector(".top_wrap h1").innerHTML = "단꿈상점";
 };
 
 const agent = navigator.userAgent.toLowerCase();
