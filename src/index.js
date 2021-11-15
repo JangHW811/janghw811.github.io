@@ -11,7 +11,8 @@ document.onreadystatechange = function (e) {
     document.body.style.overflowY = 'auto';
   }
 
-  document.querySelector(".top_wrap h1").innerHTML = '<img style="width: 72px; height: 22px; vertical-align: text-top;" src="/content/images/sweetdreamstore_new.png">';
+  document.querySelector('.top_wrap h1').innerHTML =
+    '<img style="width: 72px; height: 22px; vertical-align: text-top;" src="/content/images/sweetdreamstore_new.png">';
 };
 
 const agent = navigator.userAgent.toLowerCase();
@@ -200,7 +201,7 @@ const onScrollMobile = () => {
     ? document.querySelector('.header_menu_wrap').offsetHeight + 10
     : 0;
 
-  const scaleStartPosition = ratio2 > 2 ? (parallaxScrollHeight / 2.7) * ratio2 : (parallaxScrollHeight / 3.7) * ratio2;
+  const scaleStartPosition = ratio2 > 2 ? (parallaxScrollHeight / 2.8) * ratio2 : (parallaxScrollHeight / 3.5) * ratio2;
   const bottomPositionForScale = positionY - scaleStartPosition;
   const scale = scaleMin + bottomPositionForScale / 3000;
   const bottomPosition = positionY - (parallaxScrollHeight - windowHeight) - headerHeight;

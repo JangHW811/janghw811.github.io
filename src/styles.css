@@ -84,7 +84,7 @@ html {
   position: fixed;
   z-index: 1;
   width: 100vw;
-  height: 8000px;
+  height: 16000px;
   background-image: url('../assets/images/starryStar.png');
   background-repeat: repeat;
   background-size: contain;
@@ -93,7 +93,7 @@ html {
   align-items: flex-end;
 }
 .parallaxScroll {
-  height: 8000px;
+  height: 16000px;
   background-color: #101122;
   z-index: 2;
 }
@@ -807,7 +807,9 @@ html {
     position: fixed;
     z-index: 1;
     width: 100vw;
-    height: 16000px;
+    height: 2800vh;
+    min-height: 15000px;
+    max-height: 17000px;
     /* height: calc(var(--vh, 1vh) * 2000); */
     background-image: url('../assets/images/starryStarM.png');
     background-repeat: repeat;
@@ -817,7 +819,9 @@ html {
     align-items: flex-end;
   }
   .parallaxScroll {
-    height: 16000px;
+    height: 2800vh;
+    min-height: 15000px;
+    max-height: 17000px;
     /* height: calc(var(--vh, 1vh) * 2000); */
   }
 
