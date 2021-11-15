@@ -11,7 +11,7 @@ document.onreadystatechange = function (e) {
     document.body.style.overflowY = 'auto';
   }
 
-  document.querySelector(".top_wrap h1").innerHTML = "단꿈상점";
+  document.querySelector(".top_wrap h1").innerHTML = '<img style="width: 72px; height: 22px; vertical-align: text-top;" src="/content/images/sweetdreamstore_new.png">';
 };
 
 const agent = navigator.userAgent.toLowerCase();

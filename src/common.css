@@ -130,243 +130,240 @@ footer#footer {
   margin-top: 0px;
 }
 
-@media screen and (max-width: 768px) {
-  img {
-    width : auto;
-  }
-  select, input {
-    text-align:center;
+img {
+  width : auto;
+}
+select, input {
+  text-align:center;
 
-    text-indent: 0 !important;
-    padding:0 !important;
-  }
-  .news_detail .top, .link_box, .mu_quick_wrap{
-   display:none;
-  }
+  text-indent: 0 !important;
+  padding:0 !important;
+}
+.news_detail .top, .link_box, .mu_quick_wrap{
+ display:none;
+}
 
-  .top_wrap {
-    background: #fff;
-  }
+.top_wrap {
+  background: #fff;
+}
 
-  .gnb {
-    width : 51rem;
-  }
+.gnb {
+  width : 51rem;
+}
 
 
-  .fb__floatingNav {
-    position: fixed;
-    z-index: 4;
-    right: 15px;
-    bottom: 85px;
-    width: 50px;
-    min-height: 50px;
-  }
+.fb__floatingNav {
+  position: fixed;
+  z-index: 4;
+  right: 15px;
+  bottom: 85px;
+  width: 50px;
+  min-height: 50px;
+}
 
-  .fb__floatingNav__event {
-    min-height: 115px;
-  }
+.fb__floatingNav__event {
+  min-height: 115px;
+}
 
-  .fb__floatingNav__top {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 50px;
-    background: url("https://event.navienhouse.com/sweetdreamstore/assets/img/mo_arrow_top.png") no-repeat 50% 50%/60% auto;
-    background-color: #2f2360 !important;
-    border-radius: 50%;
-    box-sizing: border-box;
-  }
+.fb__floatingNav__top {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: url("https://event.navienhouse.com/sweetdreamstore/assets/img/mo_arrow_top.png") no-repeat 50% 50%/60% auto;
+  background-color: #2f2360 !important;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
 
-  .fb__floatingNav__sns {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin-bottom: 15px;
-  }
+.fb__floatingNav__sns {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
 
-  .fb__floatingNav__sns #ProdUrl {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    opacity: 0;
-    width: 5px;
-    height: 5px;
-  }
+.fb__floatingNav__sns #ProdUrl {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  width: 5px;
+  height: 5px;
+}
 
-  /* .fb__floatingNav__sns:hover .banner__sns__open {
-    display: none;
-  }
+/* .fb__floatingNav__sns:hover .banner__sns__open {
+  display: none;
+}
 
-  .fb__floatingNav__sns:hover .banner__sns__layer {
-    display: block;
-  } */
+.fb__floatingNav__sns:hover .banner__sns__layer {
+  display: block;
+} */
 
-  .fb__floatingNav__sns .banner__sns__open.active {
-    display: none;
-  }
+.fb__floatingNav__sns .banner__sns__open.active {
+  display: none;
+}
 
-  .fb__floatingNav__sns .banner__sns__layer.active {
-    display: block;
-  }
+.fb__floatingNav__sns .banner__sns__layer.active {
+  display: block;
+}
 
-  .fb__floatingNav__sns .banner__sns__open {
-    width: 50px;
-    height: 50px;
-    background: #2f2360 url("https://event.navienhouse.com/sweetdreamstore/assets/img/ico_event-nav.png") no-repeat 47% 50%/41%;
-    border-radius: 50%;
-    border:0;
-    font-size: 0;
-  }
+.fb__floatingNav__sns .banner__sns__open {
+  width: 50px;
+  height: 50px;
+  background: #2f2360 url("https://event.navienhouse.com/sweetdreamstore/assets/img/ico_event-nav.png") no-repeat 47% 50%/41%;
+  border-radius: 50%;
+  border:0;
+  font-size: 0;
+}
 
-  .fb__floatingNav__sns .banner__sns__layer {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    width: 50px;
-    padding: 10px 0;
-    background: #2f2360;
-    border-radius: 60px;
-    text-align:center;
-  }
+.fb__floatingNav__sns .banner__sns__layer {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  padding: 10px 0;
+  background: #2f2360;
+  border-radius: 60px;
+  text-align:center;
+}
 
-  .fb__floatingNav__sns .banner__sns__layer button {
-    display: block;
-    width: 27px;
-    margin: 24px auto 0;
-    font-size: 0;
-  }
+.fb__floatingNav__sns .banner__sns__layer button {
+  display: block;
+  width: 27px;
+  margin: 24px auto 0;
+  font-size: 0;
+}
 
-  .fb__floatingNav__sns .banner__sns__layer button:first-child {
-    margin-top: 0;
-  }
+.fb__floatingNav__sns .banner__sns__layer button:first-child {
+  margin-top: 0;
+}
 
-  .fb__floatingNav__sns .banner__sns__layer button:hover {
-  }
+.fb__floatingNav__sns .banner__sns__layer button:hover {
+}
 
-  .link{
-    width: 100%;
-    padding: 25%;
-  }
+.link{
+  width: 100%;
+  padding: 25%;
+}
 
-  .line {
-    text-align:center;
-    border-top: none;
-    width: 80%;
-    margin: 0 auto;
-  }
+.line {
+  text-align:center;
+  border-top: none;
+  width: 80%;
+  margin: 0 auto;
+}
 
-  section.navien{
-    height:auto;
+section.navien{
+  height:auto;
+  background:none;
+  position:relative
+}
+
+.popup button{
+  font-size: 17px;
+  letter-spacing: 1.1px;
+  font-family: 'MaruBuri',sans-serif;
+  color: #efb81c;
+  border:none
+}
+
+.popup .popup-menu-btn{
+  font-size: 17px !important;
+  letter-spacing: 1.1px !important;
+  font-family: 'MaruBuri',sans-serif !important;
+  color: #efb81c !important;
+}
+
+.phone-check-btn{
+    font-size: 15px !important;
+}
+
+.phone-check-success-btn{
+    font-size: 16px !important;
     background:none;
-    position:relative
-  }
+    color: #e6ba45 !important;
+    font-family: "명조", sans-serif!important;
+}
 
-  .popup button{
-    font-size: 17px;
-    letter-spacing: 1.1px;
-    font-family: 'MaruBuri',sans-serif;
-    color: #efb81c;
-    border:none
-  }
+.marketing_txt_link{
+  font-weight: 900;
+  color: #b5b6e6;
+  text-decoration:underline !important;
+}
 
-  .popup .popup-menu-btn{
-    font-size: 17px !important;
-    letter-spacing: 1.1px !important;
-    font-family: 'MaruBuri',sans-serif !important;
-    color: #efb81c !important;
-  }
+.input-box.code-check{
+  width:100% !important;
+  height: auto !important;
+  margin: 2.1rem 0 !important;
+}
 
-  .phone-check-btn{
-      font-size: 15px !important;
-  }
+.video_frame{
+  position: absolute;
+  top: 30.99%;
+  left: 8.77%;
+  width: 82.5%;
+  height: 7.44%;
+}
 
-  .phone-check-success-btn{
-      font-size: 16px !important;
-      background:none;
-      color: #e6ba45 !important;
-      font-family: "명조", sans-serif!important;
-  }
+article.popup .code-check .clock-wrap{
+  position:relative;
+  top: -10px;
+  bottom: 0;
+  margin-left:0;
+  width: 13%;
+  text-align: center;
+  padding: 0 3%;
+  color: white;
+  vertical-align: middle;
+}
 
-  .marketing_txt_link{
-    font-weight: 900;
-    color: #b5b6e6;
-    text-decoration:underline !important;
-  }
+article.popup .code-check #code{
+  width: 57.6%;
+}
 
-  .input-box.code-check{
-    width:100% !important;
-    height: auto !important;
-    margin: 2.1rem 0 !important;
-  }
+.small-txt{
+  font-family:"바른고딕",sans-serif;
+}
 
-  .video_frame{
-    position: absolute;
-    top: 30.99%;
-    left: 8.77%;
-    width: 82.5%;
-    height: 7.44%;
-  }
+.divide{
+  width:90%;
+  margin:0 auto;
+}
 
-  article.popup .code-check .clock-wrap{
-    position:relative;
-    top: -10px;
-    bottom: 0;
-    margin-left:0;
-    width: 13%;
-    text-align: center;
-    padding: 0 3%;
-    color: white;
-    vertical-align: middle;
-  }
+.check_done{
+  display:none;
+  margin: 20px;
+}
 
-  article.popup .code-check #code{
-    width: 57.6%;
-  }
+#replyListArea {
+  padding : 0px;
+  display: none;
+}
 
-  .small-txt{
-    font-family:"바른고딕",sans-serif;
-  }
+.container {
+  padding-top:0px;
+}
 
-  .divide{
-    width:90%;
-    margin:0 auto;
-  }
+.news_detail {
+  margin : 0px;
+}
 
-  .check_done{
-    display:none;
-    margin: 20px;
-  }
+.news_detail .detail_sec {
+  padding : 0px;
+}
 
-  #replyListArea {
-    padding : 0px;
-    display: none;
-  }
+footer#footer {
+  background-color: #fff;
+  margin-top:0px;
+}
 
-  .container {
-    padding-top:0px;
-  }
+html {
+  -webkit-tap-highlight-color : transparent;
+}
 
-  .news_detail {
-    margin : 0px;
-  }
-
-  .news_detail .detail_sec {
-    padding : 0px;
-  }
-
-  footer#footer {
-    background-color: #fff;
-    margin-top:0px;
-  }
-
-  html {
-    -webkit-tap-highlight-color : transparent;
-  }
-
-  .foot_banner_es img {
-    width: 100%;
-  }
-
+.foot_banner_es img {
+  width: 100%;
 }
