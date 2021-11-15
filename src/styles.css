@@ -17,12 +17,12 @@
 @font-face {
   font-family: 'NanumBarunGothicOTF';
   font-weight: normal;
-  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumBarunGothic.woff);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumBarunGothic.otf);
 }
 @font-face {
   font-family: 'NanumSquareOTFB';
   font-weight: normal;
-  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumPen.woff);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumPen.otf);
 }
 
 * {
@@ -37,9 +37,9 @@ br {
 
 body {
   background-color: #0e0f30;
+  overscroll-behavior: none;
   overflow-x: hidden;
   overflow-y: hidden;
-  overscroll-behavior-y: none;
   font-family: 'MaruBuriot', sans-serif;
 }
 
@@ -84,7 +84,7 @@ html {
   position: fixed;
   z-index: 1;
   width: 100vw;
-  height: 16000px;
+  height: 8000px;
   background-image: url('../assets/images/starryStar.png');
   background-repeat: repeat;
   background-size: contain;
@@ -93,7 +93,7 @@ html {
   align-items: flex-end;
 }
 .parallaxScroll {
-  height: 16000px;
+  height: 8000px;
   background-color: #101122;
   z-index: 2;
 }
@@ -370,7 +370,7 @@ html {
 }
 
 .bottomContent {
-  padding-top: 250px;
+  padding-top: 200px;
   position: relative;
   display: flex;
   width: 100vw;
@@ -587,6 +587,7 @@ html {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  text-decoration: none;
 }
 .storeContainer .goodsContainer .goodsItem.comingsoon .goodsFrame::after {
   content: 'COMING\ASOON';
@@ -654,7 +655,28 @@ html {
   margin-top: 22px;
   justify-self: flex-end;
 }
+.storeContainer .goodsContainer .comingsoon .flag2 {
+  background: url('../assets/images/flagDisabled.png') no-repeat;
+  background-size: contain;
+  width: 228px;
+  height: 43px;
+  margin-top: 22px;
+  justify-self: flex-end;
+  width: 228px;
+  height: 43px;
+}
 
+.storeContainer .goodsContainer .comingsoon .flagFont {
+  font-family: MaruBuriot;
+  font-size: 20.5px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.07;
+  letter-spacing: normal;
+  text-align: center;
+  color: #aaa;
+}
 .contentFooter {
   position: relative;
   z-index: 1;
@@ -695,6 +717,69 @@ html {
   color: #6b6b6b;
 }
 
+.alertMask {
+  background: rgba(0, 0, 0, 0.74);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.alert {
+  display: flex;
+  width: 700px;
+  height: 250px;
+  border: solid 5px #3f2f8c;
+  background-color: #080720;
+  font-family: NanumBarunGothicOTF;
+  font-size: 28px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+.alert .xbutton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.alert .xbutton::before {
+  display: inline-block;
+  content: '\00d7';
+  font-size: 45px;
+  color: #775bff;
+  width: 45px;
+  height: 45px;
+}
+
+.alert .okButton {
+  text-decoration: none;
+  background: url('../assets/images/flag2.png') no-repeat;
+  background-size: contain;
+  width: 180px;
+  height: 38px;
+  font-family: MaruBuriot;
+  font-size: 18px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  color: #ffcd5d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (max-width: 1600px) {
   .flag {
     width: 237px;
@@ -749,6 +834,13 @@ html {
   .storeContainer .goodsContainer .flag2 {
     width: 114px;
     height: 22px;
+  }
+  .storeContainer .goodsContainer .comingsoon .flag2 {
+    width: 114px;
+    height: 22px;
+  }
+  .storeContainer .goodsContainer .comingsoon .flagFont {
+    font-size: 10.5px;
   }
   .storeContainer .goodsContainer .flagFont {
     font-size: 10.5px;
@@ -945,8 +1037,42 @@ html {
     transform: scale(2);
     transform-origin: bottom;
   }
-}
 
+  .alertMask {
+    background: rgba(0, 0, 0, 0.74);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+  }
+  .alert {
+    border: solid 3px #3f2f8c;
+    width: 260px;
+    height: 170px;
+    font-size: 20px;
+  }
+  .alert .xbutton {
+    right: 5px;
+    top: 5px;
+  }
+  .alert .xbutton::before {
+    font-size: 30px;
+    width: 30px;
+    height: 45px;
+  }
+
+  .alert .okButton {
+    width: 90px;
+    height: 20px;
+    font-size: 10px;
+  }
+}
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .moonBackground {
     width: auto;

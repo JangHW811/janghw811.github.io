@@ -1,4 +1,4 @@
-const elLength = 7;
+const elLength = 6;
 const rate = (1 / (elLength + 1)).toFixed(2);
 let isMobileWidth = false;
 let windowHeight = 0;
@@ -45,6 +45,7 @@ const onScroll = () => {
 };
 
 const onScrollPC = () => {
+  console.log('scroll', windowWidth);
   const parallaxScrollHeight = 16000;
   const contentHeight = parallaxScrollHeight + windowHeight;
   const scaleStartPosition = 8000;
@@ -161,7 +162,7 @@ const onScrollMobile = () => {
   const layer5 = document.querySelector('.layer5');
 
   const fadeTiming = 400 * ratio;
-  const fadeLong = 2.7 * ratio;
+  const fadeLong = 3.2 * ratio;
   layer0.style.opacity = fadeLong - (Math.abs(positionY - (fadeTiming - 100)) / (fadeTiming - 100)) * ratio;
   layer1.style.opacity = fadeLong - (Math.abs(positionY - unitNumber) / fadeTiming) * ratio;
   layer2.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 2) / fadeTiming) * ratio;
@@ -220,18 +221,16 @@ const onScrollMobile = () => {
 };
 
 const onResize = () => {
-  isMobileWidth = windowWidth < 768;
-  // if (!isMobileWidth || (isMobileWidth && windowHeight < window.innerHeight)) {
-  //   windowHeight = window.innerHeight;
-  //   windowWidth = window.innerWidth;
-  // }
   windowHeight = window.innerHeight;
   windowWidth = window.innerWidth;
+  isMobileWidth = windowWidth < 768;
+  console.log('resize', windowWidth);
   const parallaxScrollHeight = document.querySelector('.parallaxScroll').offsetHeight;
   console.log('parallaxScrollHeight', parallaxScrollHeight);
   const youtubeContainer = document.querySelector('.youtubeContainer > img.youtubeFrame');
   const youtubeIframe = document.querySelector('.youtubeContainer > iframe');
   const containerWidth = isMobileWidth ? window.visualViewport.width - 20 : windowWidth * 0.36;
+  console.log('containerWidth', containerWidth, isMobileWidth);
   const youtubeWidth = isMobileWidth ? window.visualViewport.width - 70 : windowWidth * 0.31;
   const youtubeHeight = isMobileWidth ? (window.visualViewport.width - 70) * (41 / 73) : windowWidth * 0.31 * (41 / 73);
   youtubeContainer.style.width = `${containerWidth}px`;
@@ -281,6 +280,23 @@ window.onload = () => {
       });
     }),
   );
+
+  const alertArea = document.querySelector(`.alertMask`);
+  const okButton = document.querySelectorAll(`.alertMask .alert .closeEvent`);
+  okButton.forEach((item) => {
+    item.addEventListener('click', (event) => {
+      alertArea.style.display = 'none';
+      document.body.style.overflowY = 'auto';
+    });
+  });
+
+  const comingsoon = document.querySelectorAll(`.comingsoon`);
+  comingsoon.forEach((item) => {
+    item.addEventListener('click', () => {
+      alertArea.style.display = 'flex';
+      document.body.style.overflowY = 'hidden';
+    });
+  });
 })();
 
 // window.onload = function () {
@@ -329,6 +345,6 @@ setInterval(() => {
   randomTwinkle(starNumber);
 }, 50);
 
-// window.console.log = (...message) => {
-// document.getElementById('log').innerHTML = message;
-// };
+window.console.log = (...message) => {
+  // document.getElementById('log').innerHTML = message;
+};
