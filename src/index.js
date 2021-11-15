@@ -251,11 +251,11 @@ window.onload = () => {
 };
 
 (() => {
-  const finger = document.querySelector('.fingerToggle');
-  finger.addEventListener('click', (event) => {
-    const el = document.querySelector('.fingerFrame');
-    el.classList.toggle('open');
-  });
+  // const finger = document.querySelector('.fingerToggle');
+  // finger.addEventListener('click', (event) => {
+  //   const el = document.querySelector('.fingerFrame');
+  //   el.classList.toggle('open');
+  // });
   const peopleContainer = document.querySelector('.peopleContainer');
 
   const human = peopleContainer.querySelectorAll('.humanContainer');
