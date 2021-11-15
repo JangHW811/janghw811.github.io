@@ -24,17 +24,17 @@ if (!Element.prototype.append) {
   Element.prototype.append = Element.prototype.appendChild;
 }
 
-// if (!('remove' in Element.prototype)) {
-//   Element.prototype.remove = function () {
-//     if (this.parentNode) {
-//       this.parentNode.removeChild(this);
-//     }
-//   };
-// }
+if (!('remove' in Element.prototype)) {
+  Element.prototype.remove = function () {
+    if (this.parentNode) {
+      this.parentNode.removeChild(this);
+    }
+  };
+}
 
 const onScroll = () => {
-  windowHeight = window.visualViewport.height;
-  windowWidth = window.visualViewport.width;
+  windowHeight = window.innerHeight;
+  windowWidth = window.innerWidth;
   isMobileWidth = windowWidth < 768;
   // console.log('isMobileWidth', isMobileWidth);
   if (isMobileWidth) {
@@ -118,8 +118,8 @@ const onScrollPC = () => {
   layerBuildingContainer.style.top = `${buildingLayerTopPosition >= 0 ? buildingLayerTopPosition : 0}vh`;
 
   // console.log('positionY', positionY);
-  const scaleMin = isMobileWidth ? 2 : 1;
-  const scaleMax = isMobileWidth ? 2.6 : 1.3;
+  const scaleMin = 1;
+  const scaleMax = 1.3;
   // const scaleStartPosition = parallaxScrollHeight - 2500;
   const bottomPositionForScale = positionY - scaleStartPosition;
   const scale = scaleMin + bottomPositionForScale / 3000;
