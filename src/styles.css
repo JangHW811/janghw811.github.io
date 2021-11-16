@@ -17,12 +17,12 @@
 @font-face {
   font-family: 'NanumBarunGothicOTF';
   font-weight: normal;
-  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumBarunGothic.otf);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumBarunGothic.woff);
 }
 @font-face {
   font-family: 'NanumSquareOTFB';
   font-weight: normal;
-  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumPen.otf);
+  src: url(https://kr.object.ncloudstorage.com/kyungdong-navien/fonts/NanumPen.woff);
 }
 
 * {
