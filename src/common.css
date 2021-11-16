@@ -289,6 +289,13 @@ html {
 
 @media screen and (max-width: 768px) {
 
+  .fb__floatingNav__sns:hover .banner__sns__open {
+    display: unset;
+  }
+
+  .fb__floatingNav__sns:hover .banner__sns__layer {
+    display: unset;
+  }
 
   .fb__floatingNav {
     position: fixed;
