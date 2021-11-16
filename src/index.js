@@ -11,7 +11,7 @@ document.onreadystatechange = function (e) {
     document.body.style.overflowY = 'auto';
   }
 
-  if(document.querySelector('.top_wrap h1') != null){
+  if (document.querySelector('.top_wrap h1') != null) {
     document.querySelector('.top_wrap h1').innerHTML =
       '<img style="width: 72px; height: 22px; vertical-align: text-top;" src="/content/images/sweetdreamstore_new.png">';
   }
@@ -61,6 +61,13 @@ const onScrollPC = () => {
   const unitNumber = contentHeight / elLength;
   const background = document.querySelector('.background');
   background.style.top = `-${positionY / 415}%`;
+
+  const scrollDown = document.querySelector('.scrollDown');
+  if (positionY > 0) {
+    scrollDown.classList.add('hide');
+  } else {
+    scrollDown.classList.remove('hide');
+  }
 
   const fadeContainer = document.querySelector('.fadeContainer');
   const layer0 = document.querySelector('.layer0');
@@ -155,6 +162,13 @@ const onScrollMobile = () => {
   const unitNumber = contentHeight / elLength;
   const background = document.querySelector('.background');
   background.style.top = `-${positionY / 415}%`;
+
+  const scrollDown = document.querySelector('.scrollDown');
+  if (positionY > 0) {
+    scrollDown.classList.add('hide');
+  } else {
+    scrollDown.classList.remove('hide');
+  }
 
   const fadeContainer = document.querySelector('.fadeContainer');
   const layer0 = document.querySelector('.layer0');

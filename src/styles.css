@@ -438,7 +438,7 @@ html {
 }
 .introducePeople .peopleContainer img.line {
   z-index: 0;
-  border-top:none;
+  border-top: none;
 }
 .introducePeople .peopleContainer img.photo {
   z-index: 1;
@@ -783,6 +783,23 @@ html {
   width: 180px;
   height: 38px;
 }
+
+.scrollDown {
+  position: fixed;
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: photoFadeIn 0.7s linear forwards;
+}
+.scrollDown.hide {
+  animation: photoFadeOut 0.7s linear forwards;
+}
+.scrollDown img {
+  width: 222px;
+}
+
 @media screen and (max-width: 1600px) {
   .flag {
     width: 237px;
@@ -1095,6 +1112,9 @@ html {
     width: 90px;
     height: 20px;
     font-size: 10px;
+  }
+  .scrollDown img {
+    width: 111px;
   }
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
