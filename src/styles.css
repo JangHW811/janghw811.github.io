@@ -794,7 +794,7 @@ html {
 
 .scrollDown {
   position: fixed;
-  height: 80vh;
+  height: 90vh;
   width: 100vw;
   display: flex;
   align-items: flex-end;
