@@ -178,8 +178,8 @@ const onScrollMobile = () => {
   const layer4 = document.querySelector('.layer4');
   const layer5 = document.querySelector('.layer5');
 
-  const fadeTiming = 400 * ratio;
-  const fadeLong = 3.2 * ratio;
+  const fadeTiming = 300 * ratio;
+  const fadeLong = 8 * ratio;
   layer0.style.opacity = fadeLong - (Math.abs(positionY - (fadeTiming - 100)) / (fadeTiming - 100)) * ratio;
   layer1.style.opacity = fadeLong - (Math.abs(positionY - unitNumber) / fadeTiming) * ratio;
   layer2.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 2) / fadeTiming) * ratio;
@@ -323,7 +323,6 @@ window.onload = () => {
       document.body.style.overflowY = 'hidden';
     });
   });
-
 })();
 
 // window.onload = function () {
