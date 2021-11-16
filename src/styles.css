@@ -1128,6 +1128,14 @@ html {
     display: inline-flex;
     margin: 30px;
   }
+
+  .alert {
+    justify-content : center;
+  }
+
+  .alert .okButton {
+    margin-top:30px;
+  }
 }
 
 .star {
