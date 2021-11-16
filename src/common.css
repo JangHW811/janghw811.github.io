@@ -59,7 +59,7 @@
   left: 0;
   width: 68px;
   height: 68px;
-  background: url('https://event.navienhouse.com/sweetdreamstore/assets/img/mo_arrow_top.png') no-repeat 50% 50%/60% auto;
+  background: url("https://event.navienhouse.com/sweetdreamstore/assets/img/mo_arrow_top.png") no-repeat 50% 50%/60% auto;
   background-color: #2f2360 !important;
   border-radius: 50%;
   box-sizing: border-box;
@@ -92,7 +92,7 @@
 .fb__floatingNav__sns .banner__sns__open {
   width: 68px;
   height: 68px;
-  background: #2f2360 url('https://event.navienhouse.com/sweetdreamstore/assets/img/ico_event-nav.png') no-repeat 47% 50%/41%;
+  background: #2f2360 url("https://event.navienhouse.com/sweetdreamstore/assets/img/ico_event-nav.png") no-repeat 47% 50%/41%;
   border-radius: 50%;
   border: 0;
   font-size: 0;
@@ -109,8 +109,18 @@
   text-align: center;
 }
 
+.fb__floatingNav__sns .banner__sns__layer button {
+  display: block;
+  width: 27px;
+  margin: 24px auto 0;
+  font-size: 0;
+}
+
 .fb__floatingNav__sns .banner__sns__layer button:first-child {
   margin-top: 0;
+}
+
+.fb__floatingNav__sns .banner__sns__layer button:hover {
 }
 
 header#header {
@@ -151,107 +161,16 @@ select, input {
   width : 51rem;
 }
 
-
-.fb__floatingNav {
-  position: fixed;
-  z-index: 4;
-  right: 15px;
-  bottom: 85px;
-  width: 50px;
-  min-height: 50px;
-}
-
-.fb__floatingNav__event {
-  min-height: 115px;
-}
-
-.fb__floatingNav__top {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  background: url("https://event.navienhouse.com/sweetdreamstore/assets/img/mo_arrow_top.png") no-repeat 50% 50%/60% auto;
-  background-color: #2f2360 !important;
-  border-radius: 50%;
+.link{
+  display: inline-block;
+  width: 100%;
+  padding: 25%;
   box-sizing: border-box;
 }
 
-.fb__floatingNav__sns {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  margin-bottom: 15px;
-}
-
-.fb__floatingNav__sns #ProdUrl {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  opacity: 0;
-  width: 5px;
-  height: 5px;
-}
-
-/* .fb__floatingNav__sns:hover .banner__sns__open {
-  display: none;
-}
-
-.fb__floatingNav__sns:hover .banner__sns__layer {
-  display: block;
-} */
-
-.fb__floatingNav__sns .banner__sns__open.active {
-  display: none;
-}
-
-.fb__floatingNav__sns .banner__sns__layer.active {
-  display: block;
-}
-
-.fb__floatingNav__sns .banner__sns__open {
-  width: 50px;
-  height: 50px;
-  background: #2f2360 url("https://event.navienhouse.com/sweetdreamstore/assets/img/ico_event-nav.png") no-repeat 47% 50%/41%;
-  border-radius: 50%;
-  border:0;
-  font-size: 0;
-}
-
-.fb__floatingNav__sns .banner__sns__layer {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  width: 50px;
-  padding: 10px 0;
-  background: #2f2360;
-  border-radius: 60px;
-  text-align:center;
-}
-
-.fb__floatingNav__sns .banner__sns__layer button {
-  display: block;
-  width: 27px;
-  margin: 24px auto 0;
-  font-size: 0;
-}
-
-.fb__floatingNav__sns .banner__sns__layer button:first-child {
-  margin-top: 0;
-}
-
-.fb__floatingNav__sns .banner__sns__layer button:hover {
-}
-
-.link{
-  width: 100%;
-  padding: 25%;
-}
-
 .line {
-  text-align:center;
-  border-top: none;
+  text-align: center;
+  border-top: 1px solid #654bb6;
   width: 80%;
   margin: 0 auto;
 }
@@ -366,4 +285,101 @@ html {
 
 .foot_banner_es img {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+
+
+  .fb__floatingNav {
+    position: fixed;
+    z-index: 4;
+    right: 15px;
+    bottom: 85px;
+    width: 50px;
+    min-height: 50px;
+  }
+
+  .fb__floatingNav__event {
+    min-height: 115px;
+  }
+
+  .fb__floatingNav__top {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background: url("https://event.navienhouse.com/sweetdreamstore/assets/img/mo_arrow_top.png") no-repeat 50% 50%/60% auto;
+    background-color: #2f2360 !important;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+
+  .fb__floatingNav__sns {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+
+  .fb__floatingNav__sns #ProdUrl {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    width: 5px;
+    height: 5px;
+  }
+
+  /* .fb__floatingNav__sns:hover .banner__sns__open {
+    display: none;
+  }
+
+  .fb__floatingNav__sns:hover .banner__sns__layer {
+    display: block;
+  } */
+
+  .fb__floatingNav__sns .banner__sns__open.active {
+    display: none;
+  }
+
+  .fb__floatingNav__sns .banner__sns__layer.active {
+    display: block;
+  }
+
+  .fb__floatingNav__sns .banner__sns__open {
+    width: 50px;
+    height: 50px;
+    background: #2f2360 url("https://event.navienhouse.com/sweetdreamstore/assets/img/ico_event-nav.png") no-repeat 47% 50%/41%;
+    border-radius: 50%;
+    border:0;
+    font-size: 0;
+  }
+
+  .fb__floatingNav__sns .banner__sns__layer {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    padding: 10px 0;
+    background: #2f2360;
+    border-radius: 60px;
+    text-align:center;
+  }
+
+  .fb__floatingNav__sns .banner__sns__layer button {
+    display: block;
+    width: 27px;
+    margin: 24px auto 0;
+    font-size: 0;
+  }
+
+  .fb__floatingNav__sns .banner__sns__layer button:first-child {
+    margin-top: 0;
+  }
+
+  .fb__floatingNav__sns .banner__sns__layer button:hover {
+  }
+
 }
