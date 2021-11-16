@@ -447,6 +447,7 @@ html {
   display: grid;
   display: -ms-grid;
   align-items: flex-end;
+  text-decoration: none;
 }
 .introducePeople .cardContainer {
   width: 38.5vw;
