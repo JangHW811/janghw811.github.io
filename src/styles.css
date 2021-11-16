@@ -647,6 +647,10 @@ html {
   text-align: center;
   color: #e4ba9b;
 }
+.storeContainer .goodsContainer .flagFont img {
+  width: 8px;
+  height: 14px;
+}
 .storeContainer .goodsContainer .flag2 {
   background: url('../assets/images/flag2.png') no-repeat;
   background-size: contain;
@@ -752,33 +756,17 @@ html {
 }
 .alert .xbutton {
   position: absolute;
-  right: 10px;
-  top: 10px;
-}
-.alert .xbutton::before {
-  display: inline-block;
-  content: '\00d7';
-  font-size: 45px;
-  color: #775bff;
+  right: 20px;
+  top: 20px;
   width: 45px;
   height: 45px;
 }
 
 .alert .okButton {
   text-decoration: none;
-  background: url('../assets/images/flag2.png') no-repeat;
   background-size: contain;
   width: 180px;
   height: 38px;
-  font-family: MaruBuriot;
-  font-size: 18px;
-  font-weight: 200;
-  font-stretch: normal;
-  font-style: normal;
-  color: #ffcd5d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 @media screen and (max-width: 1600px) {
   .flag {
@@ -845,6 +833,10 @@ html {
   }
   .storeContainer .goodsContainer .comingsoon .flagFont {
     font-size: 10.5px;
+  }
+  .storeContainer .goodsContainer .flagFont img {
+    width: 4px;
+    height: 7px;
   }
   .storeContainer .goodsContainer .flagFont {
     font-size: 10.5px;
@@ -1101,7 +1093,7 @@ html {
   }
 
   .introducePeople .peopleContainer {
-    max-height: 192px;;
+    max-height: 192px;
   }
 
   .introducePeople .cardContainer {
@@ -1130,11 +1122,11 @@ html {
   }
 
   .alert {
-    justify-content : center;
+    justify-content: center;
   }
 
   .alert .okButton {
-    margin-top:30px;
+    margin-top: 30px;
   }
 }
 
