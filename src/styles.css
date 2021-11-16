@@ -438,6 +438,7 @@ html {
 }
 .introducePeople .peopleContainer img.line {
   z-index: 0;
+  border-top:none;
 }
 .introducePeople .peopleContainer img.photo {
   z-index: 1;
