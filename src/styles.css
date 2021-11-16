@@ -1101,7 +1101,7 @@ html {
   }
 
   .introducePeople .peopleContainer {
-    min-height: 31vh;
+    max-height: 192px;;
   }
 
   .introducePeople .cardContainer {

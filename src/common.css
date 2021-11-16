@@ -1,7 +1,7 @@
 #quickMenu,
 .cont_top_wrap,
 .board_view_top,
-.board_view_section + .btn_wrap {
+.board_view_section + .btn_wrap, .btn_wrap {
   display: none;
 }
 
