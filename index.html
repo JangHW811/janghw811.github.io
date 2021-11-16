@@ -4,6 +4,30 @@
     <title>경동나비엔</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 카카오 픽셀 등록 -->
+    <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+    <script type="text/javascript">
+          kakaoPixel('8239351780624910763').pageView();
+    </script>
+
+    <!-- 페이스북 픽셀 등록 -->
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1085911724874164');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1085911724874164&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+
     <link href="./src/common.css" rel="stylesheet" />
     <link href="./src/styles.css" rel="stylesheet" />
     <link href="http://www.openhiun.com/hangul/nanumbarungothic.css" rel="stylesheet" type="text/css" />
@@ -318,6 +342,17 @@
         </a></div>
     </div>
 
+    <div class="alertMask2">
+      <div class="alert">
+        <a class="xbutton closeEvent">
+          <img src="./assets/images/cls.png"/>
+        </a>
+        <span>URL이 복사되었습니다.</span>
+        <a class="okButton closeEvent">
+          <img src="./assets/images/btn_pop.png"/>
+        </a></div>
+    </div>
+
     <nav class="fb__floatingNav fb__floatingNav__event">
       <div class="fb__floatingNav__sns">
         <input type="text" id="ProdUrl" value="">
@@ -338,7 +373,8 @@
       </div>
       <a href="#" class="fb__floatingNav__top"><span class="blind"></span></a>
     </nav>
-    
+
     <script src="src/index.js"></script>
+    <script src="https://event.navienhouse.com/assets/sweetdreamstore/211116/common.js"></script>
   </body>
 </html>

@@ -734,6 +734,19 @@ html {
   justify-content: center;
   display: none;
 }
+.alertMask2 {
+  background: rgba(0, 0, 0, 0.74);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
 .alert {
   display: flex;
   width: 700px;
@@ -1035,6 +1048,19 @@ html {
   }
 
   .alertMask {
+    background: rgba(0, 0, 0, 0.74);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+  }
+  .alertMask2 {
     background: rgba(0, 0, 0, 0.74);
     position: fixed;
     top: 0;

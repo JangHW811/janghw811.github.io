@@ -11,8 +11,10 @@ document.onreadystatechange = function (e) {
     document.body.style.overflowY = 'auto';
   }
 
-  document.querySelector('.top_wrap h1').innerHTML =
-    '<img style="width: 72px; height: 22px; vertical-align: text-top;" src="/content/images/sweetdreamstore_new.png">';
+  if(document.querySelector('.top_wrap h1') != null){
+    document.querySelector('.top_wrap h1').innerHTML =
+      '<img style="width: 72px; height: 22px; vertical-align: text-top;" src="/content/images/sweetdreamstore_new.png">';
+  }
 };
 
 const agent = navigator.userAgent.toLowerCase();
@@ -291,6 +293,15 @@ window.onload = () => {
     });
   });
 
+  const alertArea2 = document.querySelector(`.alertMask2`);
+  const okButton2 = document.querySelectorAll(`.alertMask2 .alert .closeEvent`);
+  okButton2.forEach((item) => {
+    item.addEventListener('click', (event) => {
+      alertArea2.style.display = 'none';
+      document.body.style.overflowY = 'auto';
+    });
+  });
+
   const comingsoon = document.querySelectorAll(`.comingsoon`);
   comingsoon.forEach((item) => {
     item.addEventListener('click', () => {
@@ -298,6 +309,7 @@ window.onload = () => {
       document.body.style.overflowY = 'hidden';
     });
   });
+
 })();
 
 // window.onload = function () {
