@@ -364,7 +364,7 @@ html {
 
 .layerBuildingContainer img {
   width: 100%;
-  height : intrinsic;
+  height: intrinsic;
 }
 .layerBuildingContainer .buildingInnerContents > .building3Layer {
   bottom: -2px;
@@ -662,10 +662,27 @@ html {
   background: url('../assets/images/flag2.png') no-repeat;
   background-size: contain;
   width: 228px;
-  height: 43px;
-  margin-top: 22px;
+  height: 44px;
   justify-self: flex-end;
+  z-index: 2;
+  position: relative;
 }
+
+.glowingContainer {
+  margin-top: 22px;
+}
+
+.glowingDummy {
+  z-index: 1;
+  width: 228px;
+  height: 30px;
+  position: absolute;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+
 .storeContainer .goodsContainer .comingsoon .flag2 {
   background: url('../assets/images/flagDisabled.png') no-repeat;
   background-size: contain;
@@ -809,6 +826,54 @@ html {
   width: 222px;
 }
 
+@-webkit-keyframes glowing {
+  0% {
+    -webkit-box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+  }
+  50% {
+    -webkit-box-shadow: 0 0 40px #5155f6;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+  }
+}
+
+@-moz-keyframes glowing {
+  0% {
+    -moz-box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+  }
+  50% {
+    -moz-box-shadow: 0 0 40px #5155f6;
+  }
+  100% {
+    -moz-box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+  }
+}
+
+@-o-keyframes glowing {
+  0% {
+    box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px #5155f6;
+  }
+  100% {
+    box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+  }
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px #5155f6;
+  }
+  100% {
+    box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+  }
+}
+
 @media screen and (max-width: 1600px) {
   .flag {
     width: 237px;
@@ -867,6 +932,15 @@ html {
   .storeContainer .goodsContainer .flag2 {
     width: 114px;
     height: 22px;
+  }
+
+  .glowingDummy {
+    width: 114px;
+    height: 16px;
+    -webkit-animation: glowing 1500ms infinite;
+    -moz-animation: glowing 1500ms infinite;
+    -o-animation: glowing 1500ms infinite;
+    animation: glowing 1500ms infinite;
   }
   .storeContainer .goodsContainer .comingsoon .flag2 {
     width: 114px;
