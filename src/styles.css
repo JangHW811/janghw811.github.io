@@ -364,6 +364,7 @@ html {
 
 .layerBuildingContainer img {
   width: 100%;
+  height : intrinsic;
 }
 .layerBuildingContainer .buildingInnerContents > .building3Layer {
   bottom: -2px;
