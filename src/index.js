@@ -266,6 +266,24 @@ window.onload = () => {
   onResize();
 };
 
+const humanClickHandle = ({ humanItem, humans, index }) => {
+  console.log('humanItem, humans, index ', humanItem, humans, index);
+  humans.forEach((item) => {
+    item.classList.remove('active');
+  });
+
+  humanItem.parentElement.classList.add('active');
+  const cardList = document.querySelectorAll(`.cardContainer > img`);
+  cardList.forEach((card, cardIndex) => {
+    // console.log('card', card, index, cardIndex);
+    if (index === cardIndex) {
+      card.classList.add('active');
+    } else {
+      card.classList.remove('active');
+    }
+  });
+};
+
 (() => {
   // const finger = document.querySelector('.fingerToggle');
   // finger.addEventListener('click', (event) => {
@@ -274,27 +292,12 @@ window.onload = () => {
   // });
   const peopleContainer = document.querySelector('.peopleContainer');
 
-  const human = peopleContainer.querySelectorAll('.humanContainer');
+  const humans = peopleContainer.querySelectorAll('.humanContainer');
 
-  human.forEach((item, index) =>
+  humans.forEach((item, index) =>
     item.addEventListener('click', (event) => {
-      human.forEach((item) => {
-        item.classList.remove('active');
-      });
-      // const human = target.parent();
-      // const human = event.target;
-
-      event.target.parentElement.classList.add('active');
-      const cardList = document.querySelectorAll(`.cardContainer > img`);
-
-      cardList.forEach((card, cardIndex) => {
-        // console.log('card', card, index, cardIndex);
-        if (index === cardIndex) {
-          card.classList.add('active');
-        } else {
-          card.classList.remove('active');
-        }
-      });
+      humanClickHandle({ humanItem: event.target, humans, index });
+      humanFade = () => {};
     }),
   );
 
@@ -370,6 +373,16 @@ setInterval(() => {
   const starNumber = Math.floor(Math.random() * 100);
   randomTwinkle(starNumber);
 }, 50);
+
+let humanFade = (humanIndex) => {
+  const humans = document.querySelectorAll('.humanContainer');
+  const humanItem = humans[humanIndex].firstChild;
+  humanClickHandle({ humanItem, humans, index: humanIndex });
+  const newIndex = (humanIndex + 1) % 4;
+  setTimeout(() => humanFade(newIndex), 3000);
+};
+
+humanFade(0);
 
 window.console.log = (...message) => {
   // document.getElementById('log').innerHTML = message;
