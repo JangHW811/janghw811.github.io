@@ -49,6 +49,8 @@ const onScroll = () => {
 
 const onScrollPC = () => {
   console.log('scroll', windowWidth);
+  const ratio = windowWidth / windowHeight;
+  const ratio2 = windowHeight / windowWidth;
   const parallaxScrollHeight = 16000;
   const contentHeight = parallaxScrollHeight + windowHeight;
   const scaleStartPosition = 8000;
@@ -89,14 +91,14 @@ const onScrollPC = () => {
     }
   }
 
-  const fadeTiming = 400;
-  const fadeLong = 2.7;
+  const fadeTiming = 180 * ratio;
+  const fadeLong = 7.6 * ratio2;
   layer0.style.opacity = fadeLong - Math.abs(positionY - (fadeTiming - 100)) / (fadeTiming - 100);
   layer1.style.opacity = fadeLong - Math.abs(positionY - unitNumber) / fadeTiming;
   layer2.style.opacity = fadeLong - Math.abs(positionY - unitNumber * 2) / fadeTiming;
   layer3.style.opacity = fadeLong - Math.abs(positionY - unitNumber * 3) / fadeTiming;
   layer4.style.opacity = fadeLong - Math.abs(positionY - unitNumber * 4) / fadeTiming;
-  layer5.style.opacity = -(fadeLong - (positionY - unitNumber * 4.5) / fadeTiming);
+  layer5.style.opacity = -(fadeLong - (positionY - unitNumber * 4) / fadeTiming);
 
   const building1Layer = document.querySelector('.building1Layer');
   const building2Layer = document.querySelector('.building2Layer');
@@ -177,15 +179,14 @@ const onScrollMobile = () => {
   const layer3 = document.querySelector('.layer3');
   const layer4 = document.querySelector('.layer4');
   const layer5 = document.querySelector('.layer5');
-  console.log('ratio', ratio);
-  const fadeTiming = 600 * ratio * 0.7;
-  const fadeLong = 8 * ratio * 0.7;
+  const fadeTiming = 600 * ratio;
+  const fadeLong = 1.2 * ratio2;
   layer0.style.opacity = fadeLong - (Math.abs(positionY - (fadeTiming - 100)) / (fadeTiming - 100)) * ratio;
   layer1.style.opacity = fadeLong - (Math.abs(positionY - unitNumber) / fadeTiming) * ratio;
   layer2.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 2) / fadeTiming) * ratio;
   layer3.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 3) / fadeTiming) * ratio;
   layer4.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 4) / fadeTiming) * ratio;
-  layer5.style.opacity = -(fadeLong - ((positionY - unitNumber * 4.5) / fadeTiming) * ratio);
+  layer5.style.opacity = -(fadeLong - ((positionY - unitNumber * 4) / fadeTiming) * ratio);
 
   const building1Layer = document.querySelector('.building1Layer');
   const building2Layer = document.querySelector('.building2Layer');
