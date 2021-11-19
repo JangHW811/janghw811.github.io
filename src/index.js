@@ -177,9 +177,9 @@ const onScrollMobile = () => {
   const layer3 = document.querySelector('.layer3');
   const layer4 = document.querySelector('.layer4');
   const layer5 = document.querySelector('.layer5');
-
-  const fadeTiming = 300 * ratio;
-  const fadeLong = 8 * ratio;
+  console.log('ratio', ratio);
+  const fadeTiming = 600 * ratio * 0.7;
+  const fadeLong = 8 * ratio * 0.7;
   layer0.style.opacity = fadeLong - (Math.abs(positionY - (fadeTiming - 100)) / (fadeTiming - 100)) * ratio;
   layer1.style.opacity = fadeLong - (Math.abs(positionY - unitNumber) / fadeTiming) * ratio;
   layer2.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 2) / fadeTiming) * ratio;
