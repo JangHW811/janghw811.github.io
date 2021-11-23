@@ -406,7 +406,7 @@ const getVideo = () => {
                 </a>
             `;
 
-      if (index === itemList.length - 1) {
+      if (index === 0) {
         setYoutube(item);
       }
       return html;
@@ -455,13 +455,18 @@ const getGoods = () => {
         item?.use_yn === 'Y' ? `href="${item.link}"` : ''
       } >
                         <div class="goodsFrame">
-                        <img src="${item?.thumbnail}" class="goods" alt="" />
-                        <img src="${goodsFrame}" alt="" />
+                          <img src="${item?.thumbnail}" class="goods" alt="" />
+                          <img src="${goodsFrame}" alt="" />
                         </div>
                         <p class="goodsDescription">${item?.description}</p>
-                        <div class="flag2 center">
-                        <span class="flagFont">${item?.button} <img src="${item?.use_yn === 'Y' ? btn_arrow : btn_arrow_gray}"/>
-                        </span>
+                        <div class="center glowingContainer">
+                          ${item?.effect === 'Y' ? '<div class="glowingDummy"></div>' : ''}
+                          <div class="flag2 center">
+                            <span class="flagFont">${item?.button} <img src="${
+        item?.use_yn === 'Y' ? btn_arrow : btn_arrow_gray
+      }"/>
+                            </span>
+                          </div>
                         </div>
                     </a>
               `;
