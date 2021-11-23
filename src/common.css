@@ -294,7 +294,7 @@ html {
   }
 
   .fb__floatingNav__sns:hover .banner__sns__layer {
-    display: unset;
+    display: none;
   }
 
   .fb__floatingNav {
