@@ -383,8 +383,8 @@ humanFade(0);
 const fetchHandle = (url) => {
   return fetch(url).then((response) => response.json());
 };
-const image = require('../assets/images/arrowRight.png');
-const frame = require('../assets/images/frame.png');
+const image = 'https://event.navienhouse.com/assets/sweetdreamstore/211123/images/arrowRight.png';
+const frame = 'https://event.navienhouse.com/assets/sweetdreamstore/211123/images/frame.png';
 const getVideo = () => {
   fetchHandle('https://event.navienhouse.com/sweetdreamstore/index.php/API/getVideo').then((json) => {
     const itemList = json?.data;
@@ -442,9 +442,9 @@ const setYoutube = (data) => {
 
 getVideo();
 
-const goodsFrame = require('../assets/images/goodsFrame.png');
-const btn_arrow = require('../assets/images/btn_arrow.png');
-const btn_arrow_gray = require('../assets/images/btn_arrow_gray.png');
+const goodsFrame = 'https://event.navienhouse.com/assets/sweetdreamstore/211123/images/goodsFrame.png';
+const btn_arrow = 'https://event.navienhouse.com/assets/sweetdreamstore/211123/images/btn_arrow.png';
+const btn_arrow_gray = 'https://event.navienhouse.com/assets/sweetdreamstore/211123/images/btn_arrow_gray.png';
 
 const getGoods = () => {
   fetchHandle('https://event.navienhouse.com/sweetdreamstore/index.php/API/getProduct').then((json) => {
