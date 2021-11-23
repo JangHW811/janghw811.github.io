@@ -273,7 +273,7 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
     item.classList.remove('active');
   });
 
-  humanItem.parentElement.classList.add('active');
+  humanItem.classList.add('active');
   const cardList = document.querySelectorAll(`.cardContainer > img`);
   cardList.forEach((card, cardIndex) => {
     // console.log('card', card, index, cardIndex);
@@ -377,7 +377,7 @@ setInterval(() => {
 
 let humanFade = (humanIndex) => {
   const humans = document.querySelectorAll('.humanContainer');
-  const humanItem = humans[humanIndex].firstChild;
+  const humanItem = humans[humanIndex];
   humanClickHandle({ humanItem, humans, index: humanIndex });
   const newIndex = (humanIndex + 1) % 4;
   setTimeout(() => humanFade(newIndex), 3000);
