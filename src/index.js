@@ -268,7 +268,6 @@ window.onload = () => {
 };
 
 const humanClickHandle = ({ humanItem, humans, index }) => {
-  console.log('humanItem, humans, index ', humanItem, humans, index);
   humans.forEach((item) => {
     item.classList.remove('active');
   });
@@ -286,11 +285,13 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
 };
 
 (() => {
-  // const finger = document.querySelector('.fingerToggle');
-  // finger.addEventListener('click', (event) => {
-  //   const el = document.querySelector('.fingerFrame');
-  //   el.classList.toggle('open');
-  // });
+  const finger = document.querySelector('.fingerToggle');
+  finger.addEventListener('click', (event) => {
+    const el = document.querySelector('.fingerFrame');
+    console.log('effflll', el);
+    el.classList.toggle('open');
+  });
+  console.log('finger', finger);
   const peopleContainer = document.querySelector('.peopleContainer');
 
   const humans = peopleContainer.querySelectorAll('.humanContainer');
@@ -328,12 +329,6 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
     });
   });
 })();
-
-// window.onload = function () {
-//   setTimeout(function () {
-//     scrollTo(0, 0);
-//   }, 100);
-// };
 
 const starTwinkle = (num) => {
   const createStar = document.createElement('div');
@@ -384,6 +379,108 @@ let humanFade = (humanIndex) => {
 };
 
 humanFade(0);
+
+const fetchHandle = (url) => {
+  return fetch(url).then((response) => response.json());
+};
+const image = require('../assets/images/arrowRight.png');
+const frame = require('../assets/images/frame.png');
+const getVideo = () => {
+  fetchHandle('https://event.navienhouse.com/sweetdreamstore/index.php/API/getVideo').then((json) => {
+    const itemList = json?.data;
+    const itemHtmlList = itemList?.map((item, index) => {
+      const html = `
+                <a class="storyItemContainer">
+                    <div class="alignCenter">
+                        <img src="${item?.thumbnail}" />
+                        <div class="fontContainer">
+                        <p class="storyTitleFont">${item?.title}</p>
+                        <p class="storyContentFont">${item?.description}</p>
+                        </div>
+                    </div>
+                    <div class="alignCenter">
+                        <div class="arrowRight">
+                        <img src="${image}" />
+                        </div>
+                    </div>
+                </a>
+            `;
+
+      if (index === itemList.length - 1) {
+        setYoutube(item);
+      }
+      return html;
+    });
+
+    const storyListContainer = document.querySelector('.storyListContainer');
+    storyListContainer.innerHTML = itemHtmlList.join('');
+    const storyItemList = storyListContainer.querySelectorAll('.storyItemContainer');
+    storyItemList.forEach((story, index) =>
+      story.addEventListener('click', () => {
+        const data = itemList[index];
+        setYoutube(data);
+      }),
+    );
+  });
+};
+
+const setYoutube = (data) => {
+  const youtubeContainer = document.querySelector('.youtubeContainer');
+  const youtubeHtml = `
+    <img src="${frame}" class="imgObjectFitContain youtubeFrame" />
+    <iframe
+      frameborder="0"
+      src="${data?.video_url}"
+      class="positionAbsolute storyYoutube"
+    ></iframe>
+    <img src="${data?.episode_img}" class="imgObjectFitContain flag youtubeBottomImage" />
+    `;
+
+  youtubeContainer.innerHTML = youtubeHtml;
+  onResize();
+};
+
+getVideo();
+
+const goodsFrame = require('../assets/images/goodsFrame.png');
+const btn_arrow = require('../assets/images/btn_arrow.png');
+const btn_arrow_gray = require('../assets/images/btn_arrow_gray.png');
+
+const getGoods = () => {
+  fetchHandle('https://event.navienhouse.com/sweetdreamstore/index.php/API/getProduct').then((json) => {
+    const itemList = json?.data;
+    const itemHtmlList = itemList?.map((item, index) => {
+      const html = `
+                    <a class="goodsItem ${item?.use_yn !== 'Y' ? 'comingsoon' : ''}" ${
+        item?.use_yn === 'Y' ? `href="${item.link}"` : ''
+      } >
+                        <div class="goodsFrame">
+                        <img src="${item?.thumbnail}" class="goods" alt="" />
+                        <img src="${goodsFrame}" alt="" />
+                        </div>
+                        <p class="goodsDescription">${item?.description}</p>
+                        <div class="flag2 center">
+                        <span class="flagFont">${item?.button} <img src="${item?.use_yn === 'Y' ? btn_arrow : btn_arrow_gray}"/>
+                        </span>
+                        </div>
+                    </a>
+              `;
+
+      return html;
+    });
+
+    const goodsContainer = document.querySelector('.goodsContainer');
+    goodsContainer.innerHTML = itemHtmlList.join('');
+
+    const goodsItemList = goodsContainer.querySelectorAll('.goodsItem');
+    goodsItemList.forEach((goods, index) =>
+      goods.addEventListener('click', () => {
+        goodsItemClick(index);
+      }),
+    );
+  });
+};
+getGoods();
 
 window.console.log = (...message) => {
   // document.getElementById('log').innerHTML = message;

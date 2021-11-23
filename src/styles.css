@@ -665,6 +665,7 @@ html {
   height: 44px;
   justify-self: flex-end;
   z-index: 2;
+  margin-top: 22px;
   position: relative;
 }
 
@@ -688,7 +689,6 @@ html {
   background-size: contain;
   width: 228px;
   height: 43px;
-  margin-top: 22px;
   justify-self: flex-end;
   width: 228px;
   height: 43px;
@@ -1270,7 +1270,7 @@ html {
   }
 
   .glowingDummy {
-    margin-top:-14px;
+    margin-top: -14px;
   }
 }
 
