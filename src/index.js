@@ -272,7 +272,12 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
     item.classList.remove('active');
   });
 
-  humanItem.classList.add('active');
+  if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || agent.indexOf('msie') != -1) {
+    humanItem.classList.add('active');
+  }else{
+    humanItem.parentElement.classList.add('active');
+  }
+
   const cardList = document.querySelectorAll(`.cardContainer > img`);
   cardList.forEach((card, cardIndex) => {
     // console.log('card', card, index, cardIndex);
@@ -298,7 +303,12 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
 
   humans.forEach((item, index) =>
     item.addEventListener('click', (event) => {
-      humanClickHandle({ humanItem: event.target, humans, index });
+      if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || agent.indexOf('msie') != -1) {
+        humanClickHandle({ humanItem: event.target.parentElement, humans, index });
+      }else{
+        humanClickHandle({ humanItem: event.target, humans, index });
+      }
+
       humanFade = () => {};
     }),
   );
@@ -372,8 +382,15 @@ setInterval(() => {
 
 let humanFade = (humanIndex) => {
   const humans = document.querySelectorAll('.humanContainer');
-  const humanItem = humans[humanIndex];
-  humanClickHandle({ humanItem, humans, index: humanIndex });
+
+  if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || agent.indexOf('msie') != -1) {
+    const humanItem = humans[humanIndex];
+    humanClickHandle({ humanItem, humans, index: humanIndex });
+  }else{
+    const humanItem = humans[humanIndex].firstChild;
+    humanClickHandle({ humanItem, humans, index: humanIndex });
+  }
+
   const newIndex = (humanIndex + 1) % 4;
   setTimeout(() => humanFade(newIndex), 3000);
 };
@@ -470,7 +487,6 @@ const getGoods = () => {
                         </div>
                     </a>
               `;
-
       return html;
     });
 
@@ -483,6 +499,15 @@ const getGoods = () => {
         goodsItemClick(index);
       }),
     );
+
+    const comingsoon = document.querySelectorAll(`.comingsoon`);
+    comingsoon.forEach((item) => {
+      item.addEventListener('click', () => {
+        const alertArea = document.querySelector(`.alertMask`);
+        alertArea.style.display = 'flex';
+        document.body.style.overflowY = 'hidden';
+      });
+    });
   });
 };
 getGoods();
