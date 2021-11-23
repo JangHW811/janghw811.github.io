@@ -864,13 +864,13 @@ html {
 
 @keyframes glowing {
   0% {
-    box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+    box-shadow: 0 0 3px rgba(81, 68, 246, 0.3);
   }
   50% {
     box-shadow: 0 0 40px #5155f6;
   }
   100% {
-    box-shadow: 0 0 3px rgb(81, 68, 246, 0.3);
+    box-shadow: 0 0 3px rgba(81, 68, 246, 0.3);
   }
 }
 
@@ -1267,6 +1267,10 @@ html {
 
   .alert .okButton {
     margin-top: 30px;
+  }
+
+  .glowingDummy {
+    margin-top:-14px;
   }
 }
 
