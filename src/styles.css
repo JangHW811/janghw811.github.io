@@ -253,7 +253,7 @@ html {
 }
 .open .storyListContainer {
   max-height: 800px;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .storyItemContainer {
