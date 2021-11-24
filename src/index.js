@@ -179,14 +179,14 @@ const onScrollMobile = () => {
   const layer3 = document.querySelector('.layer3');
   const layer4 = document.querySelector('.layer4');
   const layer5 = document.querySelector('.layer5');
-  const fadeTiming = 600 * ratio;
+  const fadeTiming = 500 * ratio;
   const fadeLong = 1.2 * ratio2;
   layer0.style.opacity = fadeLong - (Math.abs(positionY - (fadeTiming - 100)) / (fadeTiming - 100)) * ratio;
   layer1.style.opacity = fadeLong - (Math.abs(positionY - unitNumber) / fadeTiming) * ratio;
   layer2.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 2) / fadeTiming) * ratio;
   layer3.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 3) / fadeTiming) * ratio;
   layer4.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 4) / fadeTiming) * ratio;
-  layer5.style.opacity = -(fadeLong - ((positionY - unitNumber * 4) / fadeTiming) * ratio);
+  layer5.style.opacity = -(fadeLong - ((positionY - unitNumber * 4.5) / fadeTiming) * ratio);
 
   const building1Layer = document.querySelector('.building1Layer');
   const building2Layer = document.querySelector('.building2Layer');
@@ -274,7 +274,7 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
 
   if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || agent.indexOf('msie') != -1) {
     humanItem.classList.add('active');
-  }else{
+  } else {
     humanItem.parentElement.classList.add('active');
   }
 
@@ -293,10 +293,8 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
   const finger = document.querySelector('.fingerToggle');
   finger.addEventListener('click', (event) => {
     const el = document.querySelector('.fingerFrame');
-    console.log('effflll', el);
     el.classList.toggle('open');
   });
-  console.log('finger', finger);
   const peopleContainer = document.querySelector('.peopleContainer');
 
   const humans = peopleContainer.querySelectorAll('.humanContainer');
@@ -305,7 +303,7 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
     item.addEventListener('click', (event) => {
       if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || agent.indexOf('msie') != -1) {
         humanClickHandle({ humanItem: event.target.parentElement, humans, index });
-      }else{
+      } else {
         humanClickHandle({ humanItem: event.target, humans, index });
       }
 
@@ -395,7 +393,7 @@ let humanFade = (humanIndex) => {
   if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || agent.indexOf('msie') != -1) {
     const humanItem = humans[humanIndex];
     humanClickHandle({ humanItem, humans, index: humanIndex });
-  }else{
+  } else {
     const humanItem = humans[humanIndex].firstChild;
     humanClickHandle({ humanItem, humans, index: humanIndex });
   }
@@ -521,6 +519,6 @@ const getGoods = () => {
 };
 getGoods();
 
-window.console.log = (...message) => {
-  // document.getElementById('log').innerHTML = message;
-};
+// window.console.log = (...message) => {
+//   // document.getElementById('log').innerHTML = message;
+// };

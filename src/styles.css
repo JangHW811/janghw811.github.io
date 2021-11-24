@@ -923,7 +923,7 @@ html {
     position: fixed;
     z-index: 1;
     width: 100vw;
-    height: 2800vh;
+    height: 1200vh;
     min-height: 15000px;
     max-height: 17000px;
     /* height: calc(var(--vh, 1vh) * 2000); */
@@ -935,7 +935,7 @@ html {
     align-items: flex-end;
   }
   .parallaxScroll {
-    height: 2800vh;
+    height: 1200vh;
     min-height: 15000px;
     max-height: 17000px;
     /* height: calc(var(--vh, 1vh) * 2000); */
