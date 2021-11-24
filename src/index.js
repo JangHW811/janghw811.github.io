@@ -331,6 +331,15 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
     });
   });
 
+  const eventArea = document.querySelector(`.eventMask`);
+  const okButton3 = document.querySelectorAll(`.eventPopup .closeEvent`);
+  okButton3.forEach((item) => {
+    item.addEventListener('click', (event) => {
+      eventArea.style.display = 'none';
+      document.body.style.overflowY = 'auto';
+    });
+  });
+
   const comingsoon = document.querySelectorAll(`.comingsoon`);
   comingsoon.forEach((item) => {
     item.addEventListener('click', () => {

@@ -809,6 +809,29 @@ html {
   height: 38px;
 }
 
+.eventPopup {
+  position: fixed;
+  top: 5%;
+  left: 3%;
+  z-index: 1000;
+  border: solid 5px #3f2f8c;
+  background-color: #080720;
+}
+
+.eventPopup .xbutton {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.eventPopup .xbutton img {
+  width: 45px;
+  height: 45px;
+}
+
+.eventPopup img {
+  width:100%;
+}
+
 .scrollDown {
   position: fixed;
   height: 90vh;
@@ -1174,6 +1197,38 @@ html {
     justify-content: center;
     display: none;
   }
+  .eventMask {
+    background: rgba(0, 0, 0, 0.74);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .eventMask .eventPopup {
+    justify-content: center;
+    border: solid 3px #3f2f8c;
+    width: 330px;
+    left : 0%;
+    display: flex;
+    position: relative;
+  }
+  .eventMask .eventPopup .xbutton {
+    right: 5px;
+    top: 5px;
+    width: 22px;
+    height: 22px;
+  }
+  .eventMask .eventPopup .xbutton img {
+    width: 22px;
+    height: 22px;
+  }
+
   .alert {
     border: solid 3px #3f2f8c;
     width: 260px;
