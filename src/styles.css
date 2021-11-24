@@ -923,9 +923,9 @@ html {
     position: fixed;
     z-index: 1;
     width: 100vw;
-    height: 1200vh;
-    min-height: 15000px;
-    max-height: 17000px;
+    height: inherit;
+    min-height: inherit;
+    max-height: inherit;
     /* height: calc(var(--vh, 1vh) * 2000); */
     background-image: url('../assets/images/starryStarM.png');
     background-repeat: repeat;
@@ -936,8 +936,8 @@ html {
   }
   .parallaxScroll {
     height: 1200vh;
-    min-height: 15000px;
-    max-height: 17000px;
+    /* min-height: 8000px;
+    max-height: 10000px; */
     /* height: calc(var(--vh, 1vh) * 2000); */
   }
 
