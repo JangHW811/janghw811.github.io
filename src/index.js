@@ -35,7 +35,8 @@ if (!('remove' in Element.prototype)) {
   };
 }
 
-const onScroll = () => {
+const onScroll = (e) => {
+  e.preventDefault();
   windowHeight = window.innerHeight;
   windowWidth = window.innerWidth;
   isMobileWidth = windowWidth < 768;
@@ -154,7 +155,9 @@ const onScrollPC = () => {
   }
 };
 
-const onScrollMobile = () => {
+let scrollStopFlag = true;
+
+const onScrollMobile = (e) => {
   const parallaxScrollHeight = document.querySelector('.parallaxScroll').offsetHeight;
   const contentHeight = parallaxScrollHeight + windowHeight;
   const ratio = windowWidth / windowHeight;
@@ -235,6 +238,17 @@ const onScrollMobile = () => {
   } else {
     layerBuildingContainer.style.transform = null;
     fadeContainer.style.transform = null;
+  }
+  if (parallaxScrollHeight <= positionY) {
+    if (scrollStopFlag) {
+      document.body.style.overflowY = 'hidden';
+      setTimeout(() => {
+        document.body.style.overflowY = 'auto';
+      }, 800);
+    }
+    scrollStopFlag = false;
+  } else {
+    scrollStopFlag = true;
   }
 };
 
@@ -519,6 +533,6 @@ const getGoods = () => {
 };
 getGoods();
 
-window.console.log = (...message) => {
-  // document.getElementById('log').innerHTML = message;
-};
+// window.console.log = (...message) => {
+//   // document.getElementById('log').innerHTML = message;
+// };
