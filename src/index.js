@@ -5,7 +5,6 @@ let windowHeight = 0;
 let windowWidth = 0;
 let index = null;
 document.onreadystatechange = function (e) {
-  console.log('document.readyState', document.readyState);
   if (document.readyState === 'complete') {
     document.querySelector('.progress').style.display = 'none';
     document.body.style.overflowY = 'auto';
@@ -49,12 +48,11 @@ const onScroll = (e) => {
 };
 
 const onScrollPC = () => {
-  console.log('scroll', windowWidth);
   const ratio = windowWidth / windowHeight;
   const ratio2 = windowHeight / windowWidth;
-  const parallaxScrollHeight = 16000;
+  const parallaxScrollHeight = document.querySelector('.parallaxScroll').offsetHeight;
   const contentHeight = parallaxScrollHeight + windowHeight;
-  const scaleStartPosition = 8000;
+  // const scaleStartPosition = 8000;
   const yOffset = (window.pageYOffset / contentHeight).toFixed(2);
   const newIndex = parseInt(yOffset / rate);
   if (index !== newIndex) {
@@ -92,14 +90,16 @@ const onScrollPC = () => {
     }
   }
 
-  const fadeTiming = 180 * ratio;
-  const fadeLong = 7.6 * ratio2;
-  layer0.style.opacity = fadeLong - Math.abs(positionY - (fadeTiming - 100)) / (fadeTiming - 100);
-  layer1.style.opacity = fadeLong - Math.abs(positionY - unitNumber) / fadeTiming;
-  layer2.style.opacity = fadeLong - Math.abs(positionY - unitNumber * 2) / fadeTiming;
-  layer3.style.opacity = fadeLong - Math.abs(positionY - unitNumber * 3) / fadeTiming;
-  layer4.style.opacity = fadeLong - Math.abs(positionY - unitNumber * 4) / fadeTiming;
-  layer5.style.opacity = -(fadeLong - (positionY - unitNumber * 4) / fadeTiming);
+  const scaleStartPosition = parallaxScrollHeight * ratio2;
+  console.log('scaleStartPosition', scaleStartPosition);
+  const fadeTiming = 300 * ratio;
+  const fadeLong = 4 * ratio2;
+  layer0.style.opacity = fadeLong - (Math.abs(positionY - (fadeTiming - 500)) / (fadeTiming - 100)) * ratio;
+  layer1.style.opacity = fadeLong - (Math.abs(positionY - unitNumber) / fadeTiming) * ratio;
+  layer2.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 1.7) / fadeTiming) * ratio;
+  layer3.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 2.4) / fadeTiming) * ratio;
+  layer4.style.opacity = fadeLong - (Math.abs(positionY - unitNumber * 3.1) / fadeTiming) * ratio;
+  layer5.style.opacity = -(fadeLong - ((positionY - unitNumber * 3.1) / fadeTiming) * ratio);
 
   const building1Layer = document.querySelector('.building1Layer');
   const building2Layer = document.querySelector('.building2Layer');
@@ -108,7 +108,7 @@ const onScrollPC = () => {
   const layerBuildingContainer = document.querySelector('.layerBuildingContainer');
 
   const positionHandle = (layer, layerPosition) => {
-    const movePositionPixel = windowHeight * (layerPosition / 100);
+    const movePositionPixel = windowHeight * (layerPosition / 53);
     const translatNumber = layerPosition - (movePositionPixel * positionY) / (windowWidth * 60);
     if (translatNumber >= 0) {
       layer.style.transform = `translateY(${translatNumber}px)`;
@@ -123,10 +123,10 @@ const onScrollPC = () => {
     // }
   };
 
-  positionHandle(building1Layer, 700);
-  positionHandle(building2Layer, 1000);
-  positionHandle(building3Layer, 1300);
-  positionHandle(building4Layer, 1600);
+  positionHandle(building1Layer, windowHeight * 0.6);
+  positionHandle(building2Layer, windowHeight * 1.2);
+  positionHandle(building3Layer, windowHeight * 1.8);
+  positionHandle(building4Layer, windowHeight * 2.4);
 
   const buildingLayerTopPosition = 100 - positionY / 40;
   layerBuildingContainer.style.top = `${buildingLayerTopPosition >= 0 ? buildingLayerTopPosition : 0}vh`;
@@ -225,7 +225,6 @@ const onScrollMobile = (e) => {
   const bottomPositionForScale = positionY - scaleStartPosition;
   const scale = scaleMin + bottomPositionForScale / 1000;
   const bottomPosition = positionY - (parallaxScrollHeight - windowHeight) - headerHeight;
-  console.log('position', positionY, scaleStartPosition, ratio2);
 
   if (scaleStartPosition && scaleStartPosition <= positionY) {
     const minMaxScale = scale < scaleMin ? scaleMin : scale > scaleMax ? scaleMax : scale;
@@ -257,13 +256,10 @@ const onResize = () => {
   windowHeight = window.innerHeight;
   windowWidth = window.innerWidth;
   isMobileWidth = windowWidth < 768;
-  console.log('resize', windowWidth);
   const parallaxScrollHeight = document.querySelector('.parallaxScroll').offsetHeight;
-  console.log('parallaxScrollHeight', parallaxScrollHeight);
   const youtubeContainer = document.querySelector('.youtubeContainer > img.youtubeFrame');
   const youtubeIframe = document.querySelector('.youtubeContainer > iframe');
   const containerWidth = isMobileWidth ? window.visualViewport.width - 20 : windowWidth * 0.36;
-  console.log('containerWidth', containerWidth, isMobileWidth);
   const youtubeWidth = isMobileWidth ? window.visualViewport.width - 70 : windowWidth * 0.31;
   const youtubeHeight = isMobileWidth ? (window.visualViewport.width - 70) * (41 / 73) : windowWidth * 0.31 * (41 / 73);
   youtubeContainer.style.width = `${containerWidth}px`;
@@ -534,6 +530,6 @@ const getGoods = () => {
 };
 getGoods();
 
-// window.console.log = (...message) => {
-//   // document.getElementById('log').innerHTML = message;
-// };
+window.console.log = (...message) => {
+  // document.getElementById('log').innerHTML = message;
+};
