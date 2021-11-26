@@ -35,7 +35,6 @@ if (!('remove' in Element.prototype)) {
 }
 
 const onScroll = (e) => {
-  e.preventDefault();
   windowHeight = window.innerHeight;
   windowWidth = window.innerWidth;
   isMobileWidth = windowWidth < 768;
