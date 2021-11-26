@@ -4,10 +4,11 @@ let isMobileWidth = false;
 let windowHeight = 0;
 let windowWidth = 0;
 let index = null;
+const isIphone = /iphone/i.test(navigator.userAgent.toLowerCase());
 document.onreadystatechange = function (e) {
   if (document.readyState === 'complete') {
     document.querySelector('.progress').style.display = 'none';
-    document.body.style.overflowY = 'auto';
+    enableScroll();
   }
 
   if (document.querySelector('.top_wrap h1') != null) {
@@ -90,7 +91,6 @@ const onScrollPC = () => {
   }
 
   const scaleStartPosition = parallaxScrollHeight * ratio2;
-  console.log('scaleStartPosition', scaleStartPosition);
   const fadeTiming = 300 * ratio;
   const fadeLong = 4 * ratio2;
   layer0.style.opacity = fadeLong - (Math.abs(positionY - (fadeTiming - 500)) / (fadeTiming - 100)) * ratio;
@@ -240,12 +240,19 @@ const onScrollMobile = (e) => {
 
   if (parallaxScrollHeight <= positionY) {
     if (scrollStopFlag) {
-      document.body.style.overflowY = 'hidden';
-      setTimeout(() => {
-        document.body.style.overflowY = 'auto';
-      }, 800);
+      if (isIphone) {
+        window.scrollTo(0, parallaxScrollHeight);
+        setTimeout(() => {
+          scrollStopFlag = false;
+        }, 800);
+      } else {
+        disableScroll();
+        setTimeout(() => {
+          enableScroll();
+        }, 800);
+        scrollStopFlag = false;
+      }
     }
-    scrollStopFlag = false;
   } else {
     scrollStopFlag = true;
   }
@@ -326,7 +333,7 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
   okButton.forEach((item) => {
     item.addEventListener('click', (event) => {
       alertArea.style.display = 'none';
-      document.body.style.overflowY = 'auto';
+      enableScroll();
     });
   });
 
@@ -335,7 +342,7 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
   okButton2.forEach((item) => {
     item.addEventListener('click', (event) => {
       alertArea2.style.display = 'none';
-      document.body.style.overflowY = 'auto';
+      enableScroll();
     });
   });
 
@@ -344,7 +351,7 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
   okButton3.forEach((item) => {
     item.addEventListener('click', (event) => {
       eventArea.style.display = 'none';
-      document.body.style.overflowY = 'auto';
+      enableScroll();
     });
   });
 
@@ -352,7 +359,7 @@ const humanClickHandle = ({ humanItem, humans, index }) => {
   comingsoon.forEach((item) => {
     item.addEventListener('click', () => {
       alertArea.style.display = 'flex';
-      document.body.style.overflowY = 'hidden';
+      disableScroll();
     });
   });
 })();
@@ -522,12 +529,20 @@ const getGoods = () => {
       item.addEventListener('click', () => {
         const alertArea = document.querySelector(`.alertMask`);
         alertArea.style.display = 'flex';
-        document.body.style.overflowY = 'hidden';
+        disableScroll();
       });
     });
   });
 };
 getGoods();
+
+const disableScroll = () => {
+  document.body.classList.add('lock');
+};
+
+const enableScroll = () => {
+  document.body.classList.remove('lock');
+};
 
 window.console.log = (...message) => {
   // document.getElementById('log').innerHTML = message;
