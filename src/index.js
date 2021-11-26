@@ -182,7 +182,7 @@ const onScrollMobile = (e) => {
   const layer3 = document.querySelector('.layer3');
   const layer4 = document.querySelector('.layer4');
   const layer5 = document.querySelector('.layer5');
-  const fadeTiming = 400 * ratio;
+  const fadeTiming = 300 * ratio;
   const fadeLong = 1 * ratio2;
   layer0.style.opacity = fadeLong - (Math.abs(positionY - (fadeTiming - 100)) / (fadeTiming - 100)) * ratio;
   layer1.style.opacity = fadeLong - (Math.abs(positionY - unitNumber) / fadeTiming) * ratio;
@@ -199,7 +199,7 @@ const onScrollMobile = (e) => {
 
   const positionHandle = (layer, layerPosition) => {
     const movePositionPixel = (layerPosition / 1000) * ratio;
-    const translatNumber = layerPosition - movePositionPixel * 0.54 * positionY * ratio;
+    const translatNumber = layerPosition - movePositionPixel * 1.2 * positionY * ratio;
     if (translatNumber >= 0) {
       layer.style.transform = `translateY(${translatNumber}px)`;
     } else {
@@ -221,9 +221,9 @@ const onScrollMobile = (e) => {
     ? document.querySelector('.header_menu_wrap').offsetHeight + 10
     : 0;
 
-  const scaleStartPosition = ratio2 > 2 ? (parallaxScrollHeight / 2.75) * ratio2 : (parallaxScrollHeight / 2.4) * ratio2;
+  const scaleStartPosition = ratio2 > 2 ? (parallaxScrollHeight / 3.2) * ratio2 : (parallaxScrollHeight / 2.7) * ratio2;
   const bottomPositionForScale = positionY - scaleStartPosition;
-  const scale = scaleMin + bottomPositionForScale / 3000;
+  const scale = scaleMin + bottomPositionForScale / 1000;
   const bottomPosition = positionY - (parallaxScrollHeight - windowHeight) - headerHeight;
   console.log('position', positionY, scaleStartPosition, ratio2);
 
@@ -239,6 +239,7 @@ const onScrollMobile = (e) => {
     layerBuildingContainer.style.transform = null;
     fadeContainer.style.transform = null;
   }
+
   if (parallaxScrollHeight <= positionY) {
     if (scrollStopFlag) {
       document.body.style.overflowY = 'hidden';

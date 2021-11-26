@@ -936,7 +936,7 @@ html {
     align-items: flex-end;
   }
   .parallaxScroll {
-    height: 1200vh;
+    height: 600vh;
     /* min-height: 8000px;
     max-height: 10000px; */
     /* height: calc(var(--vh, 1vh) * 2000); */
